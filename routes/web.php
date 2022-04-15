@@ -18,11 +18,14 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/dashboard',function (){
-    return view('dashboard.layouts.main', [
-        'title' => "dashboard"
-    ]); 
-}); 
+// Route::get('/dashboard',function (){
+//     return view('dashboard.layouts.main', [
+//         'title' => "dashboard"
+//     ]); 
+// }); 
 
 Route::resource('/dashboard/pasien', PatientController::class); 
 
+Route::get('/dashboard/useraccount', function () {
+    return view('dashboard.useraccount.index');
+});
