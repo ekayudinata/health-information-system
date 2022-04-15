@@ -43,6 +43,7 @@
                           </tr>
                       </thead>
                       <tbody>
+                      @foreach ($patients as $patient)
                         <tr>
                             <td>U# 1874</td>
                             <td>SOLAGRACIA ROSMALINDA SARMATUA</td>
@@ -50,10 +51,16 @@
                             <td>JL. BY PASS NGURAH RAI</td>
                             <td>2000-11-11</td>
                             <td>
-                              <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                              <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                              <a href="/dashboard/patient/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                              <form action="/dashboard/patient/{{ $patient->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button onclick="return confirm('Anda yakin?')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                              </form>
+                              
                             </td>
                         </tr>
+                      @endforeach
                       </tbody>
                 {{-- @foreach ($users as $user)
                 <tr>
