@@ -16,7 +16,7 @@ class PatientController extends Controller
     public function index()
     {
         return view('dashboard.patient.index', [
-            'title' => 'Kandidat'
+            'title' => 'Patient'
         ]);
     }
 

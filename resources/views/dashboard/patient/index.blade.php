@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Role User</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,26 +27,28 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel data role user</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tabel Data {{ $title }}</h6>
           </div>
           <div class="card-body">
               <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr>
-                              <th>#</th>
+                              <th>No. RM</th>
                               <th>Nama</th>
-                              <th>Email</th>
-                              <th>Role</th>
-                              <th>Action</th>
+                              <th>Telepon</th>
+                              <th>Alamat</th>
+                              <th>Tgl. Lahir</th>
+                              <th>Aksi</th>
                           </tr>
                       </thead>
                       <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Adipa Agastya</td>
-                            <td>adipa@omsamedic.com</td>
-                            <td>Admin</td>
+                            <td>U# 1874</td>
+                            <td>SOLAGRACIA ROSMALINDA SARMATUA</td>
+                            <td>0895343281065</td>
+                            <td>JL. BY PASS NGURAH RAI</td>
+                            <td>2000-11-11</td>
                             <td>
                               <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                               <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
