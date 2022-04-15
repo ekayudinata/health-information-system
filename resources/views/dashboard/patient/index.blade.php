@@ -31,55 +31,39 @@
           </div>
           <div class="card-body">
               <div class="table-responsive">
-                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                          <tr>
-                              <th>No. RM</th>
-                              <th>Nama</th>
-                              <th>Telepon</th>
-                              <th>Alamat</th>
-                              <th>Tgl. Lahir</th>
-                              <th>Aksi</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                      @foreach ($patients as $patient)
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
                         <tr>
-                            <td>U# 1874</td>
-                            <td>SOLAGRACIA ROSMALINDA SARMATUA</td>
-                            <td>0895343281065</td>
-                            <td>JL. BY PASS NGURAH RAI</td>
-                            <td>2000-11-11</td>
-                            <td>
-                              <a href="/dashboard/patient/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                              <form action="/dashboard/patient/{{ $patient->id }}" method="post">
-                                @method('delete')
-                                @csrf
-                                <button onclick="return confirm('Anda yakin?')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
-                              </form>
-                              
-                            </td>
+                            <th>No. RM</th>
+                            <th>Nama</th>
+                            <th>Telepon</th>
+                            <th>Alamat</th>
+                            <th>Tgl. Lahir</th>
+                            <th>Aksi</th>
                         </tr>
-                      @endforeach
-                      </tbody>
-                {{-- @foreach ($users as $user)
-                <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->email }}</td>
-                  <td>{{ $user->is_admin == 1 ? 'Admin' : 'User' }}</td>
-                  <td>
-                      <a href="/dashboard/users/{{ $user->id }}/edit" class="badge bg-warning p-2"><i class="fas fa-pen"></i></a>
-                      <form action="/dashboard/users/{{ $user->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0 p-2" onclick="return confirm('Anda yakin?')"><i class="fas fa-trash"></i></button>
-                      </form>
-                  </td>
-                </tr>
-                @endforeach --}}
-            </table>
-          </div>
+                    </thead>
+                    <tbody>
+                    @foreach ($patients as $patient)
+                    <tr>
+                        <td>{{ $patient->medic_record }}</td>
+                        <td>{{ $patient->name }}</td>
+                        <td>{{ $patient->phone }}</td>
+                        <td>{{ $patient->address }}</td>
+                        <td>{{ $patient->birth_date }}</td>
+                        <td>
+                          <a href="/dashboard/patient/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                          <form action="/dashboard/patient/{{ $patient->id }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button onclick="return confirm('Anda yakin?')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                          </form>
+                          
+                        </td>
+                    </tr>
+                    @endforeach
+                  </tbody>
+              </table>
+            </div>
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
