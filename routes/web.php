@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,4 @@ Route::get('/dashboard',function (){
 
 Route::resource('/dashboard/pasien', PatientController::class); 
 
+Route::resource('/dashboard/useraccount', UserController::class);
