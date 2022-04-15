@@ -25,6 +25,6 @@ Route::get('/dashboard',function (){
     ]); 
 }); 
 
-Route::resource('/dashboard/pasien', PatientController::class); 
+Route::resource('/dashboard/patient', PatientController::class); 
 
 Route::resource('/dashboard/useraccount', UserController::class);
