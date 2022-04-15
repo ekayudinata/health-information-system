@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patient;
-use App\Http\Requests\StorePatientRequest;
-use App\Http\Requests\UpdatePatientRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class PatientController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        //
+        return view('dashboard.useraccount.index', [
+            'title' => 'Role User'
+        ]);
     }
 
     /**
@@ -31,10 +32,10 @@ class PatientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePatientRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePatientRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Patient $patient)
+    public function show(User $user)
     {
         //
     }
@@ -53,10 +54,10 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit(User $user)
     {
         //
     }
@@ -64,11 +65,11 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePatientRequest  $request
-     * @param  \App\Models\Patient  $patient
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePatientRequest $request, Patient $patient)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -76,12 +77,11 @@ class PatientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Patient  $patient
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy(User $user)
     {
         //
     }
 }
- 

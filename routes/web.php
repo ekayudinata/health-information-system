@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +20,13 @@ Route::get('/', function () {
     return view('login');
 });
 
-// Route::get('/dashboard',function (){
-//     return view('dashboard.layouts.main', [
-//         'title' => "dashboard"
-//     ]); 
-// }); 
+Route::get('/dashboard',function (){
+    return view('dashboard.layouts.main', [
+        'title' => "dashboard"
+    ]); 
+}); 
 
 Route::resource('/dashboard/pasien', PatientController::class); 
 
-Route::get('/dashboard/useraccount', function () {
-    return view('dashboard.useraccount.index');
-});
+Route::resource('/dashboard/useraccount', UserController::class);
+Route::resource('/dashboard/jabatankaryawan', EmployeePositionController::class); 
