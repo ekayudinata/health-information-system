@@ -27,4 +27,35 @@ Route::get('/dashboard',function (){
 
 Route::resource('/dashboard/pasien', PatientController::class); 
 
-Route::resource('/dashboard/useraccount', UserController::class);
+// Route::resource('/dashboard/useraccount', UserController::class);
+
+
+Route::get('/dashboard/useraccount',function (){
+    return view('dashboard.useraccount.index', [
+        'title' => "dashboard"
+    ]); 
+});
+
+Route::get('/dashboard/useraccount/edit',function (){
+    return view('dashboard.useraccount.edit', [
+        'title' => "dashboard"
+    ]); 
+}); 
+
+Route::get('/dashboard/useraccount/create',function (){
+    return view('dashboard.useraccount.create', [
+        'title' => "dashboard"
+    ]); 
+});
+
+Route::get('/dashboard/patient/create',function (){
+    return view('dashboard.patient.create', [
+        'title' => "dashboard"
+    ]); 
+});
+
+Route::get('/dashboard/patient/edit',function (){
+    return view('dashboard.patient.edit', [
+        'title' => "dashboard"
+    ]); 
+});

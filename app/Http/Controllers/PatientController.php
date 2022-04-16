@@ -23,9 +23,11 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Patient $patient)
     {
-        //
+        return view('dashboard.patient.create', [
+            'title' => 'Tambah Patient'
+        ]);
     }
 
     /**
@@ -58,7 +60,9 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        return view('dashboard.patient.edit', [
+            'title' => 'Edit Patient'
+        ]);
     }
 
     /**
