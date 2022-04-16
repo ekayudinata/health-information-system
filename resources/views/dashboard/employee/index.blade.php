@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Role User</h1>
+        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Pegawai</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel data role user</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tabel data Pegawai</h6>
           </div>
           <div class="card-body">
               <div class="table-responsive">
@@ -36,8 +36,11 @@
                           <tr>
                               <th>#</th>
                               <th>Nama</th>
-                              <th>Email</th>
-                              <th>Role</th>
+                              <th>Jenis Kelamin</th>
+                              <th>Alamat</th>
+                              <th>No Telp</th>
+                              <th>Posisi</th>
+                              <th>Status Pekerjaan</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -45,10 +48,13 @@
                         <tr>
                             <td>1</td>
                             <td>Adipa Agastya</td>
-                            <td>adipa@omsamedic.com</td>
-                            <td>Admin</td>
+                            <td>Laki-Laki</td>
+                            <td>Perumahan Padma Jimbaran</td>
+                            <td>082135667388</td>
+                            <td>Staf IT</td>
+                            <td>DW</td>
                             <td>
-                              <a href="/dashboard/useraccount/{useraccount}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                              <a href="/dashboard/employee/1/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                               <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>

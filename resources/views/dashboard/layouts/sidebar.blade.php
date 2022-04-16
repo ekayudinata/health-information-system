@@ -29,16 +29,44 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUseraccount"
+            aria-expanded="true" aria-controls="collapseUseraccount">
             <i class="fas fa-fw fa-cog"></i>
             <span>User Account</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseUseraccount" class="collapse" aria-labelledby="headingUseraccount" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data User Account:</h6>
                 <a class="collapse-item" href="/dashboard/useraccount">Data Account</a>
                 <a class="collapse-item" href="/dashboard/useraccount/create">Tambah Data</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePatient"
+            aria-expanded="true" aria-controls="collapsePatient">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Pasien</span>
+        </a>
+        <div id="collapsePatient" class="collapse" aria-labelledby="headingPatient" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Pasien:</h6>
+                <a class="collapse-item" href="/dashboard/patient">Data Pasien</a>
+                <a class="collapse-item" href="/dashboard/patient/create">Tambah Data</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmployee"
+            aria-expanded="true" aria-controls="collapseEmployee">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Pegawai</span>
+        </a>
+        <div id="collapseEmployee" class="collapse" aria-labelledby="headingEmployee" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Pegawai:</h6>
+                <a class="collapse-item" href="/dashboard/employee">Data Pegawai</a>
+                <a class="collapse-item" href="/dashboard/employee/create">Tambah Data</a>
             </div>
         </div>
     </li>

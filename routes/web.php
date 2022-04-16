@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,28 +26,30 @@ Route::get('/dashboard',function (){
     ]); 
 }); 
 
-Route::resource('/dashboard/pasien', PatientController::class); 
+Route::resource('/dashboard/patient', PatientController::class); 
 
-// Route::resource('/dashboard/useraccount', UserController::class);
+Route::resource('/dashboard/useraccount', UserController::class);
+
+Route::resource('/dashboard/employee',EmployeeController::class);
 
 
-Route::get('/dashboard/useraccount',function (){
-    return view('dashboard.useraccount.index', [
-        'title' => "dashboard"
-    ]); 
-});
+// Route::get('/dashboard/useraccount',function (){
+//     return view('dashboard.useraccount.index', [
+//         'title' => "dashboard"
+//     ]); 
+// });
 
-Route::get('/dashboard/useraccount/edit',function (){
-    return view('dashboard.useraccount.edit', [
-        'title' => "dashboard"
-    ]); 
-}); 
+// Route::get('/dashboard/useraccount/edit',function (){
+//     return view('dashboard.useraccount.edit', [
+//         'title' => "dashboard"
+//     ]); 
+// }); 
 
-Route::get('/dashboard/useraccount/create',function (){
-    return view('dashboard.useraccount.create', [
-        'title' => "dashboard"
-    ]); 
-});
+// Route::get('/dashboard/useraccount/create',function (){
+//     return view('dashboard.useraccount.create', [
+//         'title' => "dashboard"
+//     ]); 
+// });
 
 Route::get('/dashboard/patient/create',function (){
     return view('dashboard.patient.create', [
@@ -59,3 +62,9 @@ Route::get('/dashboard/patient/edit',function (){
         'title' => "dashboard"
     ]); 
 });
+
+// Route::get('/dashboard/employee/edit',function (){
+//     return view('dashboard.employee.edit', [
+//         'title' => "dashboard"
+//     ]); 
+// });
