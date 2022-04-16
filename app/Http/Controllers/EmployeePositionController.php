@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmployeePosition;
 use Illuminate\Http\Request;
 
 class EmployeePositionController extends Controller
@@ -14,8 +15,9 @@ class EmployeePositionController extends Controller
     public function index()
     {
         return view('dashboard.employee_position.index', [
-            'title' => "Jabatan Karyawan"
-        ]); 
+            'title' => "Jabatan Karyawan",
+            "data" => EmployeePosition::all()
+        ]);
     }
 
     /**
@@ -27,7 +29,7 @@ class EmployeePositionController extends Controller
     {
         return view('dashboard.employee_position.create', [
             'title' => "Tambah jabatan"
-        ]); 
+        ]);
     }
 
     /**
@@ -38,7 +40,12 @@ class EmployeePositionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData  = $request->validate([
+            "nameposition" => "required|max:255|unique:employee_positions"
+        ]);
+
+        EmployeePosition::create($validateData);
+        return redirect('/dashboard/jabatankaryawan')->with('success', 'Data jabatan baru berhasil ditambah');
     }
 
     /**
@@ -55,12 +62,16 @@ class EmployeePositionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\EmployeePosition  $employee
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $dataemployee = EmployeePosition::find($id);
+        return view('dashboard.employee_position.edit', [
+            'title' => "Edit Jabatan",
+            'dataemployee' => $dataemployee
+        ]);
     }
 
     /**
@@ -72,7 +83,13 @@ class EmployeePositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData  = $request->validate([
+            "nameposition" => "required|max:255|unique:employee_positions"
+        ]);
+
+        EmployeePosition::where('id', $id)
+            ->update($validateData);
+        return redirect('/dashboard/jabatankaryawan')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -83,6 +100,7 @@ class EmployeePositionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        EmployeePosition::destroy($id);
+        return  redirect('/dashboard/jabatankaryawan')->with('success', 'Berhasil Menghapus data jabatan');
     }
 }

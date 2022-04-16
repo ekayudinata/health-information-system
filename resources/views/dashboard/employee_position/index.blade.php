@@ -15,14 +15,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-  
-          
-          {{-- @if (session()->has('success'))
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-              </div>
-          @endif --}}
-  
+
           <div class="card shadow mb-4">
            
             <div class="card-body">
@@ -37,15 +30,48 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach ($data as $employee)
                           <tr>
-                              <td>1</td>
-                              <td>001</td>
-                              <td>Dokter</td>
+                              <td>{{ $loop->iteration }}</td>
+                              <td>{{ $employee->id }}</td>
+                              <td>{{ $employee->nameposition }}</td>
                               <td>
-                                <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                                <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                                <a href="/dashboard/jabatankaryawan/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                                {{-- <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a> --}}
+                             
+                                <form action="/dashboard/jabatankaryawan/{{ $employee->id }}" method="post" class="d-inline">
+                                  @method('delete')
+                                  @csrf
+
+                                  <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                    <i class="fas fa-trash"></i>
+                                  </button>
+
+                                   <!-- Modal -->
+                                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                         <h4>Yakin hapus data ini ? </h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </form>
                               </td>
                           </tr>
+                          @endforeach
                         </tbody>
               </table>
             </div>

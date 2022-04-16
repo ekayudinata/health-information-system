@@ -22,9 +22,24 @@
 
     <!-- Custom styles for this page -->
     <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+   
+    {{-- sweetalert2 --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
 </head>
 <body id="page-top">
+
+    @if (session()->has('success'))
+        <script>
+            Swal.fire({
+                title: 'Berhasil',
+                text: '{{ session("success")  }}',
+                icon: 'success',
+                showConfirmButton: false, 
+                showCloseButton:true
+            })
+        </script>
+    @endif
 
     <!-- Page Wrapper -->
     <div id="wrapper">

@@ -12,17 +12,19 @@
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Buat Jabatan Baru</h1>
                     </div>
-                    <form class="user" action="/dashboard/jabatankaryawan" method="post">
+                    <form class="user" action="/dashboard/jabatankaryawan/{{ $dataemployee->id }}" method="post">
+                        @method('put')
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="nameposition" class="form-control form-control-user @error('nameposition') is-invalid @enderror" id="nameEmployeePosition" aria-describedby="nameEmployeePosition" placeholder="Nama jabatan... ">
+                            <input type="text" name="nameposition" class="form-control form-control-user @error('nameposition') is-invalid @enderror" id="nameEmployeePosition" aria-describedby="nameEmployeePosition" placeholder="Nama jabatan... " 
+                            value="{{ $dataemployee->nameposition }}"> 
                         </div>
                         @error('nameposition')
                         <p class=".text-danger">{{ $message  }}</p>
                         @enderror
 
-                        <button type="submit" class="btn btn-primary btn-user btn-lg"><i class="fas fa-plus-circle"></i>
-                            Tambah
+                        <button type="submit" class="btn btn-primary btn-user btn-lg">
+                            Ubah
                         </button>
 
                     </form>
