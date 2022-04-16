@@ -13,9 +13,12 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Employee $employee)
     {
-        //
+        return view('dashboard.employee.index', [
+            'title' => 'Pegawai', 
+            'dataemployee' => Employee::all()
+        ]);
     }
 
     /**
@@ -25,7 +28,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.employee.create', [
+            'title' => 'Tambah Data Pegawai'
+        ]);
     }
 
     /**
@@ -56,9 +61,11 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($employee)
     {
-        //
+        return view('dashboard.employee.edit', [
+            'title' => 'Ubah Data Pegawai'
+        ]);
     }
 
     /**

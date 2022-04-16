@@ -24,9 +24,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        //
+        return view('dashboard.useraccount.create', [
+            'title' => 'Tambah Role User'
+        ]);
     }
 
     /**
@@ -59,7 +61,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.useraccount.edit', [
+            'title' => 'Ubah Role User'
+        ]);
     }
 
     /**
