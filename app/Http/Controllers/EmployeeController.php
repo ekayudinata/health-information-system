@@ -26,7 +26,7 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Employee $employee)
+    public function create()
     {
         return view('dashboard.employee.create', [
             'title' => 'Tambah Data Pegawai',

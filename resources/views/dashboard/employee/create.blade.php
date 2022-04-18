@@ -17,19 +17,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        {{-- @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              {{ session('success') }}
-            </div>
-        @endif --}}
-
         <div class="card shadow mb-4">
           <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Tambah data Pekerjaan</h6>
           </div>
-          {{-- <form method="post" action="/dashboard/users/{{ $user->id }}">
-            @method('put')
-            @csrf --}}
+          <form method="post" action="/dashboard/employee">
+            @csrf
             <div class="card-body">
               <div class="row">
                 <div class="col-6">
@@ -101,7 +94,7 @@
             <div class="card-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-          {{-- </form> --}}
+          </form>
         <!-- /.card -->
       </div>
       <!-- /.col -->

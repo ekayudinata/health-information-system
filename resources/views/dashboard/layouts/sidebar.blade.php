@@ -29,11 +29,40 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseUserAcc"
+            aria-expanded="true" aria-controls="colapseUserAcc">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>User Acccount</span>
+        </a>
+        <div id="colapseUserAcc" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="buttons.html">Data Account</a>
+                <a class="collapse-item" href="cards.html">Tambah Accounts</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseUserRole"
+            aria-expanded="true" aria-controls="colapseUserRole">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>User Role </span>
+        </a>
+        <div id="colapseUserRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/userrole">Data User Role</a>
+                <a class="collapse-item" href="/dashboard/userrole/create">Tambah User Role</a>
+            </div>
+        </div>
+    </li>
+    
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUseraccount"
             aria-expanded="true" aria-controls="collapseUseraccount">
             <i class="fas fa-fw fa-cog"></i>
             <span>User Account</span>
         </a>
+    
         <div id="collapseUseraccount" class="collapse" aria-labelledby="headingUseraccount" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data User Account:</h6>
@@ -42,6 +71,21 @@
             </div>
         </div>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseEmployeePosition"
+            aria-expanded="true" aria-controls="colapseEmployeePosition">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Tipe Jabatan</span>
+        </a>
+        <div id="colapseEmployeePosition" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/employeeposition">Data Jabatan</a>
+                <a class="collapse-item" href="/dashboard/employeeposition/create">Tambah Jabatan</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePatient"
             aria-expanded="true" aria-controls="collapsePatient">

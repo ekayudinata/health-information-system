@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserRoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,9 @@ Route::get('/dashboard',function (){
 Route::resource('/dashboard/patient', PatientController::class); 
 
 Route::resource('/dashboard/useraccount', UserController::class);
+Route::resource('/dashboard/userrole', UserRoleController::class);
+
+Route::resource('/dashboard/employeeposition', EmployeePositionController::class); 
 
 Route::resource('/dashboard/employee',EmployeeController::class);
 
