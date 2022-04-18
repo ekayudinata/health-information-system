@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Tambah Pekerjaan</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -19,7 +19,7 @@
       <div class="col-12">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tambah data Pekerjaan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tambah {{ $title }}</h6>
           </div>
           <form method="post" action="/dashboard/employee">
             @csrf
@@ -28,64 +28,69 @@
                 <div class="col-6">
                   <div class="form-group">
                     <label>Nama</label>
-                    <input type="text" class="form-control" placeholder="Nama User" name="name" required value="">
-                    {{-- @error('name')
+                    <input type="text" class="form-control" placeholder="Nama User" name="name" @error('name') is-invalid @enderror required value="{{ old('name') }}">
+                    @error('name')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror --}}
+                    @enderror
                   </div>
-                  
                   <div class="form-group">
                     <label>Alamat</label>
-                    <input type="email" class="form-control" placeholder="Input Alamat" name="" required value="">
-                    {{-- @error('email')
+                    <input type="address" class="form-control" placeholder="Input Alamat" name="address" @error('address') is-invalid @enderror required value="{{ old('address') }}">
+                    @error('address')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror --}}
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>No Telp</label>
-                    <input type="email" class="form-control" placeholder="Input No Telp" name="" required value="">
-                    {{-- @error('email')
+                    <input type="phone" class="form-control" placeholder="Input No Telp" name="phone" @error('phone') is-invalid @enderror required value="{{ old('phone') }}">
+                    @error('phone')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror --}}
+                    @enderror
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group">
                     <label>Posisi</label>
-                    <select name="" class="form-control">
-                        <option value="">Staf IT</option>
-                        <option value="">option2</option>
+                    <select name="employeeposition_id" class="form-control">
+                      <option value="">Pilih Posisi</option>
+                        @foreach ($employeepositions as $employeeposition)
+                        @if (old('employeeposition_id') == $employeeposition->id)
+                      <option value="{{ $employeeposition->id }}" selected>{{ $employeeposition->name_position }}</option>
+                        @else
+                      <option value="{{ $employeeposition->id }}">{{ $employeeposition->name_position }}</option>
+                        @endif
+                        @endforeach
                     </select>
                   </div>
                   <div class="form-group">
                     <label>Status Pekerjaan</label>
-                    <select name="" class="form-control">
-                      <option value="">DW</option>
-                      <option value="">option2</option>
-                      <option value="">option2</option>
+                    <select name="work_status" class="form-control">
+                      <option value="DW">DW</option>
+                      <option value="Trainning">Trainning</option>
+                      <option value="Kontrak">Kontrak</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label>Jenis Kelamin</label>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radio1" value="0" required >
+                      <input class="form-check-input" type="radio" name="gender" value="L" required {{ old('gender') == 'L'? 'checked' : ''}}>
                       <label class="form-check-label">Laki-Laki</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="radio1" value="1" >
+                      <input class="form-check-input" type="radio" name="gender" value="P" {{ old('gender') == 'P'? 'checked' : ''}}>
                       <label class="form-check-label">Perempuan</label>
                     </div>
-                    {{-- @error('is_admin')
+                    @error('gender')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror --}}
+                    @enderror
                   </div>
                 </div>
               </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Models\EmployeePosition;
 
 class EmployeeController extends Controller
 {
@@ -29,8 +30,8 @@ class EmployeeController extends Controller
     public function create()
     {
         return view('dashboard.employee.create', [
-            'title' => 'Tambah Data Pegawai',
-            'employeepositions' => Employee::all()
+            'title' => 'Data Employee',
+            'employeepositions' => EmployeePosition::all()
         ]);
     }
 
@@ -42,7 +43,18 @@ class EmployeeController extends Controller
      */
     public function store(StoreEmployeeRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'gender' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'employeeposition_id' => 'required',
+            'work_status' => 'required',
+        ]); 
+
+        Employee::create($validatedData);
+
+        return redirect('/dashboard/employee')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -79,7 +91,19 @@ class EmployeeController extends Controller
      */
     public function update(UpdateEmployeeRequest $request, Employee $employee)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:100',
+            'gender' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'employeeposition_id' => 'required',
+            'work_status' => 'required',
+        ]); 
+
+        Employee::where('id', $employee->id)
+            ->update($validatedData);
+
+            return redirect('/dashboard/employee')->with('success', 'Data berhasil diubah');
     }
 
     /**
