@@ -6,18 +6,17 @@
         <!-- Nested Row within Card Body -->
         <div class="row">
 
-
             <div class="col-lg-12">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">Buat Jabatan Baru</h1>
+                        <h1 class="h4 text-gray-900 mb-4">Buat Role Baru</h1>
                     </div>
-                    <form class="user" action="/dashboard/jabatankaryawan" method="post">
+                    <form class="user" action="/dashboard/userrole" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" name="nameposition" class="form-control form-control-user @error('nameposition') is-invalid @enderror" id="nameEmployeePosition" aria-describedby="nameEmployeePosition" placeholder="Nama jabatan... ">
+                            <input type="text" name="role" class="form-control form-control-user @error('role') is-invalid @enderror" id="role" aria-describedby="role" placeholder="Nama role... ">
                         </div>
-                        @error('nameposition')
+                        @error('role')
                         <p class=".text-danger">{{ $message  }}</p>
                         @enderror
 

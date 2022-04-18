@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployeePositionsTable extends Migration
+class CreateUserRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateEmployeePositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee_positions', function (Blueprint $table) {
+        Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name_position'); 
+            $table->string('role'); 
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateEmployeePositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_positions');
+        Schema::dropIfExists('user_roles');
     }
 }

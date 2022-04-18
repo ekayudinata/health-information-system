@@ -14,9 +14,9 @@ class EmployeePositionController extends Controller
      */
     public function index()
     {
-        return view('dashboard.employee_position.index', [
+        return view('dashboard.employeeposition.index', [
             'title' => "Jabatan Karyawan",
-            "data" => EmployeePosition::all()
+            "employeepostions" => EmployeePosition::all()
         ]);
     }
 
@@ -27,7 +27,7 @@ class EmployeePositionController extends Controller
      */
     public function create()
     {
-        return view('dashboard.employee_position.create', [
+        return view('dashboard.employeeposition.create', [
             'title' => "Tambah jabatan"
         ]);
     }
@@ -41,11 +41,11 @@ class EmployeePositionController extends Controller
     public function store(Request $request)
     {
         $validateData  = $request->validate([
-            "nameposition" => "required|max:255|unique:employee_positions"
+            "name_position" => "required|max:255|unique:employee_positions"
         ]);
 
         EmployeePosition::create($validateData);
-        return redirect('/dashboard/jabatankaryawan')->with('success', 'Data jabatan baru berhasil ditambah');
+        return redirect('/dashboard/employeeposition')->with('success', 'Data jabatan baru berhasil ditambah');
     }
 
     /**
@@ -68,9 +68,9 @@ class EmployeePositionController extends Controller
     public function edit($id)
     {
         $dataemployee = EmployeePosition::find($id);
-        return view('dashboard.employee_position.edit', [
+        return view('dashboard.employeeposition.edit', [
             'title' => "Edit Jabatan",
-            'dataemployee' => $dataemployee
+            'employeeposition' => $dataemployee
         ]);
     }
 
@@ -84,12 +84,12 @@ class EmployeePositionController extends Controller
     public function update(Request $request, $id)
     {
         $validateData  = $request->validate([
-            "nameposition" => "required|max:255|unique:employee_positions"
+            "name_position" => "required|max:255|unique:employee_positions"
         ]);
 
         EmployeePosition::where('id', $id)
             ->update($validateData);
-        return redirect('/dashboard/jabatankaryawan')->with('success', 'Data berhasil diubah');
+        return redirect('/dashboard/employeeposition')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -101,6 +101,6 @@ class EmployeePositionController extends Controller
     public function destroy($id)
     {
         EmployeePosition::destroy($id);
-        return  redirect('/dashboard/jabatankaryawan')->with('success', 'Berhasil Menghapus data jabatan');
+        return  redirect('/dashboard/employeeposition')->with('success', 'Berhasil Menghapus data jabatan');
     }
 }

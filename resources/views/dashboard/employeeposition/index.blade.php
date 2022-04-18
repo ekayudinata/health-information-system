@@ -30,16 +30,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($data as $employee)
+                        @foreach ($employeepostions as $employee)
                           <tr>
                               <td>{{ $loop->iteration }}</td>
                               <td>{{ $employee->id }}</td>
-                              <td>{{ $employee->nameposition }}</td>
+                              <td>{{ $employee->name_position }}</td>
                               <td>
-                                <a href="/dashboard/jabatankaryawan/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                                <a href="/dashboard/employeeposition/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                                 {{-- <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a> --}}
                              
-                                <form action="/dashboard/jabatankaryawan/{{ $employee->id }}" method="post" class="d-inline">
+                                <form action="/dashboard/employeeposition/{{ $employee->id }}" method="post" class="d-inline">
                                   @method('delete')
                                   @csrf
 
