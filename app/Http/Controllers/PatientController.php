@@ -16,7 +16,7 @@ class PatientController extends Controller
     public function index()
     {
         return view('dashboard.patient.index', [
-            'title' => 'Patient',
+            'title' => 'Pasien',
             'patients' => Patient::all()
         ]);
     }
@@ -29,7 +29,7 @@ class PatientController extends Controller
     public function create(Patient $patient)
     {
         return view('dashboard.patient.create', [
-            'title' => 'Tambah Patient'
+            'title' => 'Pasien'
         ]);
     }
 

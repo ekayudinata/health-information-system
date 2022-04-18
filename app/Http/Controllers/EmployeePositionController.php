@@ -15,7 +15,7 @@ class EmployeePositionController extends Controller
     public function index()
     {
         return view('dashboard.employee_position.index', [
-            'title' => "Jabatan Karyawan",
+            'title' => "Jabatan",
             "data" => EmployeePosition::all()
         ]);
     }
@@ -28,7 +28,7 @@ class EmployeePositionController extends Controller
     public function create()
     {
         return view('dashboard.employee_position.create', [
-            'title' => "Tambah jabatan"
+            'title' => "Jabatan"
         ]);
     }
 

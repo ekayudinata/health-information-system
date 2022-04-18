@@ -22,15 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',function (){
-    return view('dashboard.layouts.main', [
-        'title' => "dashboard"
+    return view('dashboard.index', [
+        'title' => "Dashboard"
     ]); 
 }); 
 
 Route::resource('/dashboard/patient', PatientController::class); 
 
 Route::resource('/dashboard/useraccount', UserController::class);
-Route::resource('/dashboard/jabatankaryawan', EmployeePositionController::class); 
+Route::resource('/dashboard/employeepostion', EmployeePositionController::class); 
 
 Route::resource('/dashboard/employee',EmployeeController::class);
 
@@ -52,18 +52,6 @@ Route::resource('/dashboard/employee',EmployeeController::class);
 //         'title' => "dashboard"
 //     ]); 
 // });
-
-Route::get('/dashboard/patient/create',function (){
-    return view('dashboard.patient.create', [
-        'title' => "dashboard"
-    ]); 
-});
-
-Route::get('/dashboard/patient/edit',function (){
-    return view('dashboard.patient.edit', [
-        'title' => "dashboard"
-    ]); 
-});
 
 // Route::get('/dashboard/employee/edit',function (){
 //     return view('dashboard.employee.edit', [
