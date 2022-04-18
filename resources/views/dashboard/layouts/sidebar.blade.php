@@ -52,8 +52,8 @@
         </a>
         <div id="collapsePatient" class="collapse" aria-labelledby="headingPatient" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/dashboard/patient">Data Pasien</a>
-                <a class="collapse-item" href="/dashboard/patient/create">Tambah Data</a>
+                <a class="collapse-item" href="/dashboard/patients">Data Pasien</a>
+                <a class="collapse-item" href="/dashboard/patients/create">Tambah Data</a>
             </div>
         </div>
     </li>
