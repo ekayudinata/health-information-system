@@ -15,6 +15,12 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('gender', ['L', 'P']);
+            $table->string('address');
+            $table->string('phone');
+            $table->foreignId('position_id');
+            $table->enum('work_status', ['Tranning', 'DW', 'Kontrak']);
             $table->timestamps();
         });
     }

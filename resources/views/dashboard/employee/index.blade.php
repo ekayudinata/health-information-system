@@ -45,37 +45,28 @@
                           </tr>
                       </thead>
                       <tbody>
+                      @foreach ($employees as $employee)
                         <tr>
-                            <td>1</td>
-                            <td>Adipa Agastya</td>
-                            <td>Laki-Laki</td>
-                            <td>Perumahan Padma Jimbaran</td>
-                            <td>082135667388</td>
-                            <td>Staf IT</td>
-                            <td>DW</td>
+                            <td>{{ $employee->name }}</td>
+                            <td>{{ $employee->gender }}</td>
+                            <td>{{ $employee->address }}</td>
+                            <td>{{ $employee->phone }}</td>
+                            <td>{{ $employee->position_id }}</td>
+                            <td>{{ $employee->work_status }}</td>
                             <td>
-                              <a href="/dashboard/employee/1/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                              <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                              <a href="/dashboard/employee/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                              <form action="/dashboard/employee/{{ $employee->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button onclick="return confirm('Anda yakin?')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                              </form>
                             </td>
                         </tr>
+                      @endforeach
                       </tbody>
-                {{-- @foreach ($users as $user)
-                <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->email }}</td>
-                  <td>{{ $user->is_admin == 1 ? 'Admin' : 'User' }}</td>
-                  <td>
-                      <a href="/dashboard/users/{{ $user->id }}/edit" class="badge bg-warning p-2"><i class="fas fa-pen"></i></a>
-                      <form action="/dashboard/users/{{ $user->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0 p-2" onclick="return confirm('Anda yakin?')"><i class="fas fa-trash"></i></button>
-                      </form>
-                  </td>
-                </tr>
-                @endforeach --}}
-            </table>
+                  </table>
+              </div>
+              <!-- /.table -->
           </div>
           <!-- /.card-body -->
         </div>

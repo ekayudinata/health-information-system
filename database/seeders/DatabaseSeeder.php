@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
 use Illuminate\Database\Seeder;
 
 use App\Models\User;
@@ -36,6 +37,15 @@ class DatabaseSeeder extends Seeder
             'id_card_number' => '3306124403910302',
             'bpjs_number' => '0001308270036',
             'bpjs_medic' => 'FASKES JIMBARAN'
+        ]);
+
+        Employee::create([
+            'name' => 'NI WAYAN SUDIATI',
+            'gender' => 'P',
+            'address' => 'JL. PADMA GG XI/3 DPS',
+            'phone' => '082141727111',
+            'position_id' => 1,
+            'work_status' => 'DW'
         ]);
     }
 }

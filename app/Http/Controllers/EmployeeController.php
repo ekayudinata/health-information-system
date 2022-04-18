@@ -16,7 +16,8 @@ class EmployeeController extends Controller
     public function index(Employee $employee)
     {
         return view('dashboard.employee.index', [
-            'title' => 'Pegawai'
+            'title' => 'Employee',
+            'employees' => Employee::all()
         ]);
     }
 
