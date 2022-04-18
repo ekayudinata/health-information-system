@@ -18,13 +18,6 @@
     <div class="row">
       <div class="col-12">
 
-        
-        {{-- @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              {{ session('success') }}
-            </div>
-        @endif --}}
-
         <div class="card shadow mb-4">
           <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Tabel Data {{ $title }}</h6>
@@ -51,7 +44,7 @@
                         <td>{{ $patient->address }}</td>
                         <td>{{ $patient->birth_date }}</td>
                         <td>
-                          <a href="/dashboard/patient/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                          <a href="/dashboard/patients/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                           <form action="/dashboard/patient/{{ $patient->id }}" method="post">
                             @method('delete')
                             @csrf

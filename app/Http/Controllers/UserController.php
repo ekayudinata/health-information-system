@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index(User $user)
     {
         return view('dashboard.useraccount.index', [
-            'title' => 'Role User'
+            'title' => 'User Account'
         ]);
     }
 
@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create(User $user)
     {
         return view('dashboard.useraccount.create', [
-            'title' => 'Tambah Role User'
+            'title' => 'User Account'
         ]);
     }
 
