@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Pegawai</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel data Pegawai</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tabel data {{ $title }}</h6>
           </div>
           <div class="card-body">
               <div class="table-responsive">
@@ -47,11 +47,12 @@
                       <tbody>
                       @foreach ($employees as $employee)
                         <tr>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $employee->name }}</td>
-                            <td>{{ $employee->gender }}</td>
+                            <td>{{ $employee->gender == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                             <td>{{ $employee->address }}</td>
                             <td>{{ $employee->phone }}</td>
-                            <td>{{ $employee->position_id }}</td>
+                            <td>{{ $employee->employeeposition_id }}</td>
                             <td>{{ $employee->work_status }}</td>
                             <td>
                               <a href="/dashboard/employee/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>

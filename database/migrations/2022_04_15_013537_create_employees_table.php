@@ -19,7 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->enum('gender', ['L', 'P']);
             $table->string('address');
             $table->string('phone');
-            $table->foreignId('position_id');
+            $table->foreignId('employeeposition_id');
             $table->enum('work_status', ['Tranning', 'DW', 'Kontrak']);
             $table->timestamps();
         });

@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'gender' => 'P',
             'address' => 'JL. PADMA GG XI/3 DPS',
             'phone' => '082141727111',
-            'position_id' => 1,
+            'employeeposition_id' => 1,
             'work_status' => 'DW'
         ]);
     }

@@ -29,7 +29,8 @@ class EmployeeController extends Controller
     public function create(Employee $employee)
     {
         return view('dashboard.employee.create', [
-            'title' => 'Tambah Data Pegawai'
+            'title' => 'Tambah Data Pegawai',
+            'employeepositions' => Employee::all()
         ]);
     }
 
@@ -61,10 +62,11 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit($employee)
+    public function edit(Employee $employee)
     {
         return view('dashboard.employee.edit', [
-            'title' => 'Ubah Data Pegawai'
+            'title' => 'Data Pegawai',
+            'employee' => $employee
         ]);
     }
 
