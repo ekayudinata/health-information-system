@@ -45,7 +45,7 @@
                   
                   <div class="form-group">
                     <label>Alamat</label>
-                    <input type="address" class="form-control" placeholder="Input Alamat" name="address" required value="{{ old('address', $employee->address) }}">
+                    <input type="text" class="form-control" placeholder="Input Alamat" name="address" required value="{{ old('address', $employee->address) }}">
                     @error('address')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -54,7 +54,7 @@
                   </div>
                   <div class="form-group">
                     <label>No Telp</label>
-                    <input type="phone" class="form-control" placeholder="Input No Telp" name="phone" required value="{{ old('phone', $employee->phone) }}">
+                    <input type="text" class="form-control" placeholder="Input No Telp" name="phone" required value="{{ old('phone', $employee->phone) }}">
                     @error('phone')
                       <div class="invalid-feedback">
                         {{ $message }}

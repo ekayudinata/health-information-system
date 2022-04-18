@@ -28,7 +28,7 @@
                 <div class="col-6">
                   <div class="form-group">
                     <label>No RM</label>
-                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="">
+                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record') }}">
                   </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>
@@ -76,7 +76,7 @@
                       <input class="form-check-input" type="radio" name="gender" value="P" >
                       <label class="form-check-label">Perempuan</label>
                     </div>
-                    {{-- @error('is_admin')
+                    {{-- @error('gender')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
@@ -92,7 +92,7 @@
                       <input class="form-check-input" type="radio" name="nationality" value="WNA" >
                       <label class="form-check-label">WNA</label>
                     </div>
-                    {{-- @error('is_admin')
+                    {{-- @error('nationality')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>

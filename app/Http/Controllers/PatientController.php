@@ -93,7 +93,22 @@ class PatientController extends Controller
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        //
+        $validatedData = $request->validate([
+            'medic_record' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'nationality' => 'required',
+            'id_card_number' => 'required',
+            'bpjs_number' => 'required',
+            'bpjs_medic' => 'required'
+        ]); 
+        
+        Patient::where('id', $patient->id)
+            ->update($validatedData);
+        return redirect('/dashboard/patients')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

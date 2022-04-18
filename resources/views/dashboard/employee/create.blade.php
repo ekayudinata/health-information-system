@@ -37,7 +37,7 @@
                   </div>
                   <div class="form-group">
                     <label>Alamat</label>
-                    <input type="address" class="form-control" placeholder="Input Alamat" name="address" @error('address') is-invalid @enderror required value="{{ old('address') }}">
+                    <input type="text" class="form-control" placeholder="Input Alamat" name="address" @error('address') is-invalid @enderror required value="{{ old('address') }}">
                     @error('address')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -46,7 +46,7 @@
                   </div>
                   <div class="form-group">
                     <label>No Telp</label>
-                    <input type="phone" class="form-control" placeholder="Input No Telp" name="phone" @error('phone') is-invalid @enderror required value="{{ old('phone') }}">
+                    <input type="text" class="form-control" placeholder="Input No Telp" name="phone" @error('phone') is-invalid @enderror required value="{{ old('phone') }}">
                     @error('phone')
                       <div class="invalid-feedback">
                         {{ $message }}
