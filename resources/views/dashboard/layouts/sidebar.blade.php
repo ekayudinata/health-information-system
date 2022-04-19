@@ -28,20 +28,6 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseUserRole"
-            aria-expanded="true" aria-controls="colapseUserRole">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>User Role </span>
-        </a>
-        <div id="colapseUserRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/dashboard/userrole">Data User Role</a>
-                <a class="collapse-item" href="/dashboard/userrole/create">Tambah User Role</a>
-            </div>
-        </div>
-    </li>
     
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUseraccount"
@@ -103,6 +89,20 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="/dashboard/employeeposition">Data Jabatan</a>
                 <a class="collapse-item" href="/dashboard/employeeposition/create">Tambah Jabatan</a>
+            </div>
+        </div>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseUserRole"
+            aria-expanded="true" aria-controls="colapseUserRole">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>User Role </span>
+        </a>
+        <div id="colapseUserRole" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/userrole">Data User Role</a>
+                <a class="collapse-item" href="/dashboard/userrole/create">Tambah User Role</a>
             </div>
         </div>
     </li>
