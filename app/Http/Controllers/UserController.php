@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\UserRole;
+use App\Models\Employee;
+use App\Models\EmployeePosition;
 
 class UserController extends Controller
 {
@@ -15,7 +18,9 @@ class UserController extends Controller
     public function index(User $user)
     {
         return view('dashboard.useraccount.index', [
-            'title' => 'User Account'
+            'title' => 'User Account',
+            'users' => User::all(),
+            'userroles' => UserRole::all()
         ]);
     }
 
@@ -27,7 +32,9 @@ class UserController extends Controller
     public function create(User $user)
     {
         return view('dashboard.useraccount.create', [
-            'title' => 'User Account'
+            'title' => 'User Account',
+            'userroles' => UserRole::all(),
+            'employees' => Employee::all()
         ]);
     }
 
@@ -39,7 +46,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'user_role_id' => 'required',
+            'employee_id' => 'required'
+        ]); 
+
+        User::create($validatedData);
+
+        return redirect('/dashboard/useraccount')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -59,10 +76,21 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
+        // dd($user);
+        // return view('dashboard.useraccount.edit', [
+        //     'title' => 'Ubah Role User',
+        //     'user' => $user,
+        //     'userroles' => UserRole::all(),
+        //     'employees' => Employee::all()
+        // ]);
+        $datauser = User::find($id);
         return view('dashboard.useraccount.edit', [
-            'title' => 'Ubah Role User'
+            'title' => "Ubah Role User",
+            'user' => $datauser,
+            'userroles' => UserRole::all(),
+            'employees' => Employee::all()
         ]);
     }
 
@@ -73,9 +101,37 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, $id)
     {
-        //
+        // dd($request->all());
+        $validateData  = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'user_role_id' => 'required',
+            'employee_id' => 'required'
+        ]);
+
+            // dd($validateData);
+
+        User::where('id', $id)
+            ->update($validateData);
+        return redirect('/dashboard/useraccount')->with('success', 'Data berhasil diubah');
+
+        // dd($request->all());
+        // $validatedData = $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'password' => 'required',
+        //     'user_role_id' => 'required',
+        //     'employee_id' => 'required'
+        // ]); 
+
+        // dd($validatedData); 
+        
+        // User::where('id', $user->id)
+        //     ->update($validatedData);
+
+        //     return redirect('/dashboard/useraccount')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -84,8 +140,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/dashboard/useraccount')->with('success', 'Data berhasil dihapus');
     }
 }

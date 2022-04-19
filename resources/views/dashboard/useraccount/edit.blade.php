@@ -1,3 +1,4 @@
+
 @extends('dashboard.layouts.main')
 
 @section('container')
@@ -6,7 +7,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Ubah Role User</h1>
+        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,15 +28,15 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Ubah data role user</h6>
+              <h6 class="m-0 font-weight-bold text-primary">{{ $title }}</h6>
           </div>
-          {{-- <form method="post" action="/dashboard/users/{{ $user->id }}">
+          <form method="post" action="/dashboard/useraccount/{{ $user->id }}">
             @method('put')
-            @csrf --}}
+            @csrf
             <div class="card-body">
               <div class="form-group">
                 <label>Nama User</label>
-                <input type="text" class="form-control" placeholder="Nama User" name="name" required value="">
+                <input type="text" class="form-control" placeholder="Nama User" name="name" required value="{{ old('name', $user->name) }}">
                 {{-- @error('name')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -44,7 +45,7 @@
               </div>
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="email" required value="">
+                <input type="text" class="form-control" placeholder="Email" name="email" required value="{{ old('email', $user->email) }}">
                 {{-- @error('email')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -54,14 +55,24 @@
               <!-- radio -->
               <div class="form-group">
                 <label>Role</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="is_admin" value="0" required >
+                <select name="user_role_id" class="form-control">
+                  <option value="">Pilih Role</option>
+                    @foreach ($userroles as $userrole)
+                    @if (old('user_role_id') == $userrole->id)
+                  <option value="{{ $userrole->id }}" selected>{{ $userrole->role }}</option>
+                    @else
+                  <option value="{{ $userrole->id }}">{{ $userrole->role }}</option>
+                    @endif
+                    @endforeach
+                </select>
+                {{-- <div class="form-check">
+                  <input class="form-check-input" type="radio" name="" value="0" required >
                   <label class="form-check-label">User</label>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="is_admin" value="1" >
                   <label class="form-check-label">Admin</label>
-                </div>
+                </div> --}}
                 {{-- @error('is_admin')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -69,10 +80,16 @@
                 @enderror --}}
               </div>
               <div class="form-group">
-                <label>Pekerjaan</label>
-                <select name="" class="form-control">
-                    <option value="">option1</option>
-                    <option value="">option2</option>
+                <label>Pegawai</label>
+                <select name="employee_id" class="form-control">
+                  <option value="">Pilih Pegawai</option>
+                    @foreach ($employees as $employee)
+                    @if (old('employee_id') == $employee->id)
+                  <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
+                    @else
+                  <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                    @endif
+                    @endforeach
                 </select>
              </div>
             </div>
@@ -81,7 +98,7 @@
             <div class="card-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-          {{-- </form> --}}
+          </form>
         <!-- /.card -->
       </div>
       <!-- /.col -->

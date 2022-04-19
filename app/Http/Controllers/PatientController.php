@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
@@ -93,6 +94,7 @@ class PatientController extends Controller
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
+        // dd($request->all());
         $validatedData = $request->validate([
             'medic_record' => 'required',
             'name' => 'required',
@@ -105,10 +107,13 @@ class PatientController extends Controller
             'bpjs_number' => 'required',
             'bpjs_medic' => 'required'
         ]); 
+
+        // dd($validatedData); 
         
         Patient::where('id', $patient->id)
             ->update($validatedData);
-        return redirect('/dashboard/patients')->with('success', 'Data berhasil ditambahkan');
+
+            return redirect('/dashboard/patients')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -119,7 +124,8 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        Patient::destroy($patient->id);
+        return redirect('/dashboard/patients')->with('success', 'Data berhasil dihapus');
     }
 }
  

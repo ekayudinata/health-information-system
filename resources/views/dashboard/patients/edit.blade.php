@@ -30,79 +30,44 @@
                   <div class="form-group">
                     <label>No RM</label>
                     <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record', $patient->medic_record) }}">
-                    @error('medic_record')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>
                     <input type="text" class="form-control" placeholder="Input Nama Pasien" name="name" required value="{{ old('name', $patient->name) }}">
-                    @error('name')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                   <div class="form-group">
                     <label>No KTP</label>
                     <input type="text" class="form-control" placeholder="Input No KTP" name="id_card_number" required value="{{ old('id_card_number', $patient->id_card_number) }}">
-                    @error('id_card_number')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Alamat</label>
                     <input type="text" class="form-control" placeholder="Input Alamat" name="address" required value="{{ old('address', $patient->address) }}">
-                    @error('address')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                   <div class="form-group">
                     <label>No Telp</label>
                     <input type="text" class="form-control" placeholder="Input No Telp" name="phone" required value="{{ old('phone', $patient->phone) }}">
-                    @error('phone')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-6">
                   <div class="form-group">
                     <label>Tanggal Lahir</label>
-                    <input type="text" class="form-control" placeholder="2022-04-16" name="birth_date" value="{{ old('birth_date', $patient->birth_date) }}" disabled>
-                    @error('birth_date')
+                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="birth_date" value="{{ old('birth_date', $patient->birth_date) }}">
+                    {{-- @error('name')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror
+                    @enderror --}}
                   </div>
                   <div class="form-group">
                     <label>No BPJS</label>
                     <input type="number" class="form-control" placeholder="Input No BPJS" name="bpjs_number" required value="{{ old('bpjs_number', $patient->bpjs_number) }}">
-                    @error('bpjs_number')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Faskes BPJS</label>
                     <input type="text" class="form-control" placeholder="Input Faskes BPJS" name="bpjs_medic" required value="{{ old('bpjs_medic', $patient->bpjs_medic) }}">
-                    @error('bpjs_medic')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
                   </div>
-                  <div class="form-group">
+                  <div class="form-group">  
                     <label>Jenis Kelamin</label>
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gender" value="L" required {{ old('gender', $patient->gender) == 'L'? 'checked' : ''}}>
@@ -112,11 +77,11 @@
                       <input class="form-check-input" type="radio" name="gender" value="P" {{ old('gender', $patient->gender) == 'P'? 'checked' : ''}}>
                       <label class="form-check-label">Perempuan</label>
                     </div>
-                    @error('gender')
+                    {{-- @error('gender')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror
+                    @enderror --}}
                   </div>
                   <div class="form-group">
                     <label>Kebangsaan</label>
@@ -128,11 +93,11 @@
                       <input class="form-check-input" type="radio" name="nationality" value="WNA" {{ old('nationality', $patient->nationality) == 'WNA'? 'checked' : ''}}>
                       <label class="form-check-label">WNA</label>
                     </div>
-                    @error('nationality')
+                    {{-- @error('nationality')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
-                    @enderror
+                    @enderror --}}
                   </div>
                 </div>
                 <!-- /.col -->

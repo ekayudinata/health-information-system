@@ -101,8 +101,8 @@
         </a>
         <div id="colapseEmployeePosition" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/dashboard/jabatankaryawan">Data Jabatan</a>
-                <a class="collapse-item" href="/dashboard/jabatankaryawan/create">Tambah Jabatan</a>
+                <a class="collapse-item" href="/dashboard/employeeposition">Data Jabatan</a>
+                <a class="collapse-item" href="/dashboard/employeeposition/create">Tambah Jabatan</a>
             </div>
         </div>
     </li>
