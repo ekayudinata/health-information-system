@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Pegawai</h1>
+        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,7 +27,7 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel data Pegawai</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tabel data {{ $title }}</h6>
           </div>
           <div class="card-body">
               <div class="table-responsive">
@@ -45,37 +45,52 @@
                           </tr>
                       </thead>
                       <tbody>
+                      @foreach ($employees as $employee)
                         <tr>
-                            <td>1</td>
-                            <td>Adipa Agastya</td>
-                            <td>Laki-Laki</td>
-                            <td>Perumahan Padma Jimbaran</td>
-                            <td>082135667388</td>
-                            <td>Staf IT</td>
-                            <td>DW</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $employee->name }}</td>
+                            <td>{{ $employee->gender == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
+                            <td>{{ $employee->address }}</td>
+                            <td>{{ $employee->phone }}</td>
+                            <td>{{ $employee->employeeposition_id }}</td>
+                            <td>{{ $employee->work_status }}</td>
                             <td>
-                              <a href="/dashboard/employee/1/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                              <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                              <a href="/dashboard/employee/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                              <form action="/dashboard/employee/{{ $employee->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+
+                                 <!-- Modal -->
+                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                       <h4>Yakin hapus data ini ? </h4>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
                             </td>
                         </tr>
+                      @endforeach
                       </tbody>
-                {{-- @foreach ($users as $user)
-                <tr>
-                  <td>{{ $loop->iteration }}</td>
-                  <td>{{ $user->name }}</td>
-                  <td>{{ $user->email }}</td>
-                  <td>{{ $user->is_admin == 1 ? 'Admin' : 'User' }}</td>
-                  <td>
-                      <a href="/dashboard/users/{{ $user->id }}/edit" class="badge bg-warning p-2"><i class="fas fa-pen"></i></a>
-                      <form action="/dashboard/users/{{ $user->id }}" method="post" class="d-inline">
-                        @method('delete')
-                        @csrf
-                        <button class="badge bg-danger border-0 p-2" onclick="return confirm('Anda yakin?')"><i class="fas fa-trash"></i></button>
-                      </form>
-                  </td>
-                </tr>
-                @endforeach --}}
-            </table>
+                  </table>
+              </div>
+              <!-- /.table -->
           </div>
           <!-- /.card-body -->
         </div>

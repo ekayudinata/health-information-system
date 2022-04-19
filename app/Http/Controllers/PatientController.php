@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
@@ -15,8 +16,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('dashboard.patient.index', [
-            'title' => 'Patient',
+        return view('dashboard.patients.index', [
+            'title' => 'Pasien',
             'patients' => Patient::all()
         ]);
     }
@@ -28,8 +29,8 @@ class PatientController extends Controller
      */
     public function create(Patient $patient)
     {
-        return view('dashboard.patient.create', [
-            'title' => 'Tambah Patient'
+        return view('dashboard.patients.create', [
+            'title' => 'Tambah Pasien'
         ]);
     }
 
@@ -41,7 +42,22 @@ class PatientController extends Controller
      */
     public function store(StorePatientRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'medic_record' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'nationality' => 'required',
+            'id_card_number' => 'required',
+            'bpjs_number' => 'required',
+            'bpjs_medic' => 'required'
+        ]); 
+
+        Patient::create($validatedData);
+
+        return redirect('/dashboard/patients')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -63,8 +79,9 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        return view('dashboard.patient.edit', [
-            'title' => 'Edit Patient'
+        return view('dashboard.patients.edit', [
+            'title' => 'Ubah Pasien',
+            'patient' => $patient
         ]);
     }
 
@@ -77,7 +94,26 @@ class PatientController extends Controller
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        //
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'medic_record' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'nationality' => 'required',
+            'id_card_number' => 'required',
+            'bpjs_number' => 'required',
+            'bpjs_medic' => 'required'
+        ]); 
+
+        // dd($validatedData); 
+        
+        Patient::where('id', $patient->id)
+            ->update($validatedData);
+
+            return redirect('/dashboard/patients')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -88,7 +124,8 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        Patient::destroy($patient->id);
+        return redirect('/dashboard/patients')->with('success', 'Data berhasil dihapus');
     }
 }
  

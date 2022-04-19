@@ -6,7 +6,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Tambah Role User</h1>
+        {{-- <h1>{{ $title }}</h1> --}} <h1 class="h3 mb-2 text-gray-800">Tambah {{ $title }}</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -27,15 +27,14 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tambah data role user</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tambah Data {{ $title }}</h6>
           </div>
-          {{-- <form method="post" action="/dashboard/users/{{ $user->id }}">
-            @method('put')
-            @csrf --}}
+          <form method="post" action="/dashboard/useraccount">
+            @csrf
             <div class="card-body">
               <div class="form-group">
                 <label>Nama User</label>
-                <input type="text" class="form-control" placeholder="Nama User" name="name" required value="">
+                <input type="text" class="form-control" placeholder="Nama User" name="name" required value="{{ old('name') }}">
                 {{-- @error('name')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -53,7 +52,7 @@
               </div>
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" class="form-control " placeholder="Password" name="password" required>
+                <input type="password" class="form-control " placeholder="Password" name="password" required value="">
                 {{-- @error('password')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -63,14 +62,16 @@
               <!-- radio -->
               <div class="form-group">
                 <label>Role</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="is_admin" value="0" required >
-                  <label class="form-check-label">User</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="is_admin" value="1" >
-                  <label class="form-check-label">Admin</label>
-                </div>
+                <select name="user_role_id" class="form-control">
+                  <option value="">Pilih Role</option>
+                    @foreach ($userroles as $userrole)
+                    @if (old('user_role_id') == $userrole->id)
+                  <option value="{{ $userrole->id }}" selected>{{ $userrole->role }}</option>
+                    @else
+                  <option value="{{ $userrole->id }}">{{ $userrole->role }}</option>
+                    @endif
+                    @endforeach
+                </select>
                 {{-- @error('is_admin')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -78,10 +79,16 @@
                 @enderror --}}
               </div>
               <div class="form-group">
-                <label>Pekerjaan</label>
-                <select name="" class="form-control">
-                    <option value="">option1</option>
-                    <option value="">option2</option>
+                <label>Pegawai</label>
+                <select name="employee_id" class="form-control">
+                  <option value="">Pilih Pegawai</option>
+                    @foreach ($employees as $employee)
+                    @if (old('employee_id') == $employee->id)
+                  <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
+                    @else
+                  <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                    @endif
+                    @endforeach
                 </select>
              </div>
             </div>
@@ -90,7 +97,7 @@
             <div class="card-footer">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-          {{-- </form> --}}
+          </form>
         <!-- /.card -->
       </div>
       <!-- /.col -->
