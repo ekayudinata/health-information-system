@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Employee;
+use App\Models\EmployeePosition;
 use Illuminate\Database\Seeder;
 
 use App\Models\User;
 use App\Models\Patient;
+use App\Models\UserRole;
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,6 +48,20 @@ class DatabaseSeeder extends Seeder
             'phone' => '082141727111',
             'employeeposition_id' => 1,
             'work_status' => 'DW'
+        ]);
+
+        EmployeePosition::create([
+            'name_position' => 'Dokter'
+        ]);
+        EmployeePosition::create([
+            'name_position' => 'STAFF IT'
+        ]);
+
+        UserRole::create([
+            'role' => 'Admin'
+        ]);
+        UserRole::create([
+            'role' => 'Admin Finance'
         ]);
     }
 }
