@@ -17,8 +17,9 @@ class EmployeeController extends Controller
     public function index(Employee $employee)
     {
         return view('dashboard.employee.index', [
-            'title' => 'Employee',
-            'employees' => Employee::all()
+            'title' => 'Pegawai',
+            'employees' => Employee::all(),
+            'employeepositions' => EmployeePosition::all()
         ]);
     }
 
@@ -30,7 +31,7 @@ class EmployeeController extends Controller
     public function create()
     {
         return view('dashboard.employee.create', [
-            'title' => 'Data Employee',
+            'title' => 'Tambah Pegawai',
             'employeepositions' => EmployeePosition::all()
         ]);
     }
@@ -77,8 +78,9 @@ class EmployeeController extends Controller
     public function edit(Employee $employee)
     {
         return view('dashboard.employee.edit', [
-            'title' => 'Data Pegawai',
-            'employee' => $employee
+            'title' => 'Ubah Pegawai',
+            'employee' => $employee,
+            'employeepositions' => EmployeePosition::all()
         ]);
     }
 

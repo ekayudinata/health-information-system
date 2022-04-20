@@ -16,7 +16,7 @@ class EmployeePositionController extends Controller
     {
         return view('dashboard.employeeposition.index', [
             'title' => "Jabatan Karyawan",
-            "employeepostions" => EmployeePosition::all()
+            "employeepositions" => EmployeePosition::all()
         ]);
     }
 

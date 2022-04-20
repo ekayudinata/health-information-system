@@ -24,7 +24,6 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id</th>
                                 <th>Role</th>
                                 <th>Action</th>
                             </tr>
@@ -33,7 +32,6 @@
                         @foreach ($userroles as $userrole)
                           <tr>
                               <td>{{ $loop->iteration }}</td>
-                              <td>{{ $userrole->id }}</td>
                               <td>{{ $userrole->role }}</td>
                               <td>
                                 <a href="/dashboard/userrole/{{ $userrole->id  }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
@@ -67,13 +65,14 @@
                                       </div>
                                     </div>
                                   </div>
-
                                 </form>
                               </td>
                           </tr>
                           @endforeach
                         </tbody>
-              </table>
+                    </table>
+                </div>
+                <!-- /.table -->
             </div>
             <!-- /.card-body -->
           </div>

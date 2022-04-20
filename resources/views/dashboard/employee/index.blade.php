@@ -27,7 +27,7 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel data {{ $title }}</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Tabel Data {{ $title }}</h6>
           </div>
           <div class="card-body">
               <div class="table-responsive">
@@ -52,7 +52,12 @@
                             <td>{{ $employee->gender == 'L' ? 'Laki-Laki' : 'Perempuan' }}</td>
                             <td>{{ $employee->address }}</td>
                             <td>{{ $employee->phone }}</td>
-                            <td>{{ $employee->employeeposition_id }}</td>
+                            <td>
+                              {{-- {{ $employee->employeeposition_id }} --}}
+                                @foreach ($employeepositions as $employeeposition)
+                                {{ $employee->employeeposition_id == $employeeposition->id ? $employeeposition->name_position : ''}}
+                                @endforeach
+                            </td>
                             <td>{{ $employee->work_status }}</td>
                             <td>
                               <a href="/dashboard/employee/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
