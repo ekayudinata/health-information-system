@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         UserRole::create([
-            'role' => 'Admin'
+            'role' => 'Super Admin'
         ]);
         UserRole::create([
             'role' => 'Admin Finance'

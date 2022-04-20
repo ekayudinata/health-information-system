@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('login');
 // });
 
-Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -37,17 +37,17 @@ Route::get('/dashboard',function (){
         'userCount' => User::all(),
         'patientCount' => Patient::all()
     ]); 
-}); 
+})->middleware('auth'); 
 
-Route::resource('/dashboard/patients', PatientController::class); 
+Route::resource('/dashboard/patients', PatientController::class)->middleware('superadmin'); 
 
-Route::resource('/dashboard/useraccount', UserController::class);
+Route::resource('/dashboard/useraccount', UserController::class)->middleware('auth');
 
-Route::resource('/dashboard/userrole', UserRoleController::class);
+Route::resource('/dashboard/userrole', UserRoleController::class)->middleware('auth');
 
-Route::resource('/dashboard/employeeposition', EmployeePositionController::class); 
+Route::resource('/dashboard/employeeposition', EmployeePositionController::class)->middleware('auth'); 
 
-Route::resource('/dashboard/employee',EmployeeController::class);
+Route::resource('/dashboard/employee',EmployeeController::class)->middleware('auth');
 
 
 // Route::get('/dashboard/useraccount',function (){

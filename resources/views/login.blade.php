@@ -37,6 +37,14 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Health Information System</h1>
                                     </div>
+                                    @if (session()->has('loginError'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                          {{ session('loginError') }}
+                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                    @endif
                                     <form action="/" method="post" class="user">
                                         @csrf
                                         <div class="form-group">
