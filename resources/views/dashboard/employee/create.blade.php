@@ -19,7 +19,7 @@
       <div class="col-12">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tambah {{ $title }}</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form {{ $title }}</h6>
           </div>
           <form method="post" action="/dashboard/employee">
             @csrf

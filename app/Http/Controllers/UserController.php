@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index(User $user)
     {
         return view('dashboard.useraccount.index', [
-            'title' => 'User Account',
+            'title' => 'Akun User',
             'users' => User::all(),
             'userroles' => UserRole::all()
         ]);
@@ -32,7 +32,7 @@ class UserController extends Controller
     public function create(User $user)
     {
         return view('dashboard.useraccount.create', [
-            'title' => 'User Account',
+            'title' => 'Akun User',
             'userroles' => UserRole::all(),
             'employees' => Employee::all()
         ]);
@@ -87,7 +87,7 @@ class UserController extends Controller
         // ]);
         $datauser = User::find($id);
         return view('dashboard.useraccount.edit', [
-            'title' => "Ubah Role User",
+            'title' => "Ubah Akun User",
             'user' => $datauser,
             'userroles' => UserRole::all(),
             'employees' => Employee::all()

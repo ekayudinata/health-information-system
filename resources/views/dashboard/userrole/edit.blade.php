@@ -23,7 +23,7 @@
                         <p class=".text-danger">{{ $message  }}</p>
                         @enderror
 
-                        <button type="submit" class="btn btn-primary btn-user btn-lg">
+                        <button type="submit" class="btn btn-primary btn-user btn-lg"><i class="fas fas fa-pen"></i>
                             Ubah
                         </button>
 

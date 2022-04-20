@@ -7,6 +7,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InpatientAdministrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\LoginController;
+use App\Models\Employee;
+use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,23 +24,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('login');
+// });
+
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard',function (){
     return view('dashboard.index', [
-        'title' => "Dashboard"
+        'title' => "Dashboard",
+        'employeeCount' => Employee::all(),
+        'userCount' => User::all(),
+        'patientCount' => Patient::all()
     ]); 
-}); 
+})->middleware('auth'); 
 
-Route::resource('/dashboard/patients', PatientController::class); 
+Route::resource('/dashboard/patients', PatientController::class)->middleware('superadmin'); 
 
-Route::resource('/dashboard/useraccount', UserController::class);
+Route::resource('/dashboard/useraccount', UserController::class)->middleware('auth');
 
-Route::resource('/dashboard/userrole', UserRoleController::class);
+Route::resource('/dashboard/userrole', UserRoleController::class)->middleware('auth');
 
-Route::resource('/dashboard/employeeposition', EmployeePositionController::class); 
+Route::resource('/dashboard/employeeposition', EmployeePositionController::class)->middleware('auth'); 
 
 Route::resource('/dashboard/employee',EmployeeController::class);
 Route::get('/dashboard/administration',[AdministrationController::class, 'index']); 

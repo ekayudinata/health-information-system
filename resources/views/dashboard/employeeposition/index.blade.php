@@ -24,16 +24,14 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>id</th>
                                 <th>Jabatan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($employeepostions as $employee)
+                        @foreach ($employeepositions as $employee)
                           <tr>
                               <td>{{ $loop->iteration }}</td>
-                              <td>{{ $employee->id }}</td>
                               <td>{{ $employee->name_position }}</td>
                               <td>
                                 <a href="/dashboard/employeeposition/{{ $employee->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
@@ -67,13 +65,14 @@
                                       </div>
                                     </div>
                                   </div>
-
                                 </form>
                               </td>
                           </tr>
                           @endforeach
                         </tbody>
-              </table>
+                    </table>
+                </div>
+                <!-- /.table -->
             </div>
             <!-- /.card-body -->
           </div>
