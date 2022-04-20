@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InpatientAdministrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use Illuminate\Support\Facades\Route;
@@ -37,7 +39,8 @@ Route::resource('/dashboard/userrole', UserRoleController::class);
 Route::resource('/dashboard/employeeposition', EmployeePositionController::class); 
 
 Route::resource('/dashboard/employee',EmployeeController::class);
-
+Route::get('/dashboard/administration',[AdministrationController::class, 'index']); 
+Route::resource('/dashboard/inpatient', InpatientAdministrationController::class); 
 
 // Route::get('/dashboard/useraccount',function (){
 //     return view('dashboard.useraccount.index', [

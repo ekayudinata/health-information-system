@@ -19,6 +19,23 @@
             <span>Dashboard</span></a>
     </li>
 
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Modul
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="/dashboard/administration">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Admisi</span>
+        </a>
+    </li>
+
+
     @can('superadmin')
     <!-- Divider -->
     <hr class="sidebar-divider">

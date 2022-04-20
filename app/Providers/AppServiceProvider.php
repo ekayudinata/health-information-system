@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +30,5 @@ class AppServiceProvider extends ServiceProvider
         Gate:: define('superadmin', function (User $user){
             return $user->user_role_id; 
         }); 
-
     }
 }
