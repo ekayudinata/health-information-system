@@ -33,12 +33,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUseraccount"
             aria-expanded="true" aria-controls="collapseUseraccount">
             <i class="fas fa-fw fa-user"></i>
-            <span>User Account</span>
+            <span>Akun User</span>
         </a>
     
         <div id="collapseUseraccount" class="collapse" aria-labelledby="headingUseraccount" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/dashboard/useraccount">Data Account</a>
+                <a class="collapse-item" href="/dashboard/useraccount">Data Akun</a>
                 <a class="collapse-item" href="/dashboard/useraccount/create">Tambah Data</a>
             </div>
         </div>

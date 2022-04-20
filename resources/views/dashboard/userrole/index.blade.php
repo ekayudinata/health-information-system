@@ -65,13 +65,14 @@
                                       </div>
                                     </div>
                                   </div>
-
                                 </form>
                               </td>
                           </tr>
                           @endforeach
                         </tbody>
-              </table>
+                    </table>
+                </div>
+                <!-- /.table -->
             </div>
             <!-- /.card-body -->
           </div>

@@ -25,7 +25,7 @@
 
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Ubah {{ $title }}</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form {{ $title }}</h6>
           </div>
           <form method="post" action="/dashboard/employee/{{ $employee->id }}">
             @method('put')
@@ -65,11 +65,14 @@
                 <div class="col-6">
                   <div class="form-group">
                     <label>Posisi</label>
-                    <select name="employeeposition_id" class="form-control">  
-                        <option value="{{ $employee->employeeposition_id }}" selected>{{ $employee->employeeposition_id }}</option>
-                        <option value="" disabled>------------</option>
-                        <option value="Staf IT">Staf IT</option>
-                        <option value="">option2</option>
+                    <select name="employeeposition_id" class="form-control">
+                        @foreach ($employeepositions as $employeeposition)
+                        @if (old('employeeposition_id') == $employeeposition->id)
+                      <option value="{{ $employeeposition->id }}" selected>{{ $employeeposition->name_position }}</option>
+                        @else
+                      <option value="{{ $employeeposition->id }}">{{ $employeeposition->name_position }}</option>
+                        @endif
+                        @endforeach
                     </select>
                   </div>
                   <div class="form-group">
@@ -78,8 +81,8 @@
                       <option value="{{ $employee->work_status }}" selected>{{ $employee->work_status }}</option>
                       <option value="" disabled>------------</option>
                       <option value="DW">DW</option>
-                      <option value="">option2</option>
-                      <option value="">option2</option>
+                      <option value="Trainning">Trainning</option>
+                      <option value="Kontrak">Kontrak</option>
                     </select>
                   </div>
                   <div class="form-group">
