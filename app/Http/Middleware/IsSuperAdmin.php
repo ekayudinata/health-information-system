@@ -16,7 +16,12 @@ class IsSuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->user_role_id )
+
+        // (!auth()->check() || !auth()->user()->is_admin)
+        if(!auth()->check() || !(auth()->user()->user_role_id =='1' )){
+            abort(403); 
+        }
+
         return $next($request);
     }
 }

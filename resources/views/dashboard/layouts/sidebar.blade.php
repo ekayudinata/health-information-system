@@ -19,6 +19,7 @@
             <span>Dashboard</span></a>
     </li>
 
+    @can('superadmin')
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -85,6 +86,7 @@
         </div>
     </li>
 
+    @endcan
     <!-- Divider -->
     <hr class="sidebar-divider">
 
