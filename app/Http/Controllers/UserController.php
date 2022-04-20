@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use App\Models\UserRole;
 use App\Models\Employee;
+use App\Models\UserRole;
+use Illuminate\Http\Request;
 use App\Models\EmployeePosition;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -54,6 +55,7 @@ class UserController extends Controller
             'employee_id' => 'required'
         ]); 
 
+        $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
 
         return redirect('/dashboard/useraccount')->with('success', 'Data berhasil ditambahkan');
