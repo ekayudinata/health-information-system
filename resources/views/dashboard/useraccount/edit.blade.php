@@ -57,13 +57,14 @@
                 <label>Role</label>
                 <select name="user_role_id" class="form-control">
                     @foreach ($userroles as $userrole)
-                    @if (old('user_role_id') == $userrole->id)
+                    @if (old('user_role_id', $user->user_role_id) == $userrole->id)
                   <option value="{{ $userrole->id }}" selected>{{ $userrole->role }}</option>
                     @else
                   <option value="{{ $userrole->id }}">{{ $userrole->role }}</option>
                     @endif
                     @endforeach
                 </select>
+
                 {{-- <select class="form-control" name="status">
                   <option value="{{ $candidate->status }}" selected>{{ $candidate->status }}</option>
                   <option value="" disabled>------------</option>
@@ -91,9 +92,9 @@
               </div>
               <div class="form-group">
                 <label>Pegawai</label>
-                <select name="employee_id" class="form-control">
+                <select name="employee_id" class="form-control">  
                     @foreach ($employees as $employee)
-                    @if (old('employee_id') == $employee->id)
+                    @if (old('employee_id', $user->employee_id) == $employee->id)
                   <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
                     @else
                   <option value="{{ $employee->id }}">{{ $employee->name }}</option>

@@ -50,7 +50,7 @@ class EmployeeController extends Controller
             'address' => 'required',
             'phone' => 'required',
             'employeeposition_id' => 'required',
-            'work_status' => 'required',
+            'work_status' => 'required'
         ]); 
 
         Employee::create($validatedData);
@@ -99,7 +99,7 @@ class EmployeeController extends Controller
             'address' => 'required',
             'phone' => 'required',
             'employeeposition_id' => 'required',
-            'work_status' => 'required',
+            'work_status' => 'required'
         ]); 
 
         Employee::where('id', $employee->id)

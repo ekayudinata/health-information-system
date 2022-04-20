@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\UserRole;
 use App\Models\Employee;
 use App\Models\EmployeePosition;
+use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -53,6 +55,7 @@ class UserController extends Controller
             'user_role_id' => 'required',
             'employee_id' => 'required'
         ]); 
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
 
@@ -142,6 +145,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        dd($id);
         User::destroy($id);
         return redirect('/dashboard/useraccount')->with('success', 'Data berhasil dihapus');
     }
