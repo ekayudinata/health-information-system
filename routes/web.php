@@ -5,6 +5,9 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
+use App\Models\Employee;
+use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +27,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard',function (){
     return view('dashboard.index', [
-        'title' => "Dashboard"
+        'title' => "Dashboard",
+        'employeeCount' => Employee::all(),
+        'userCount' => User::all(),
+        'patientCount' => Patient::all()
     ]); 
 }); 
 
