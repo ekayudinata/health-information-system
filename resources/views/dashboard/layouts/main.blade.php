@@ -54,7 +54,7 @@
                 <div class="container-fluid">
                     
                     {{-- top navigation administration --}}
-                        @can('superadmin')
+                        {{-- @can('superadmin')
                         @if (Request::is('dashboard/administration', 'dashboard/inpatient'))
                         <div class="dropdown show d-inline">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@
                             </div>
                         </div>  
                         @endif
-                        @endcan
+                        @endcan --}}
                     {{--end  top navigation administration --}}
 
 
