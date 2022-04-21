@@ -145,7 +145,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
         User::destroy($id);
         return redirect('/dashboard/useraccount')->with('success', 'Data berhasil dihapus');
     }

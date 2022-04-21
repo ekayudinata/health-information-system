@@ -15,8 +15,8 @@
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
+    {{-- <div class="row"> --}}
+      {{-- <div class="col-12"> --}}
         <form method="post" action="/dashboard/patients">
           @csrf
           <div class="card shadow mb-4">
@@ -25,7 +25,7 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label>No RM</label>
                     <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record') }}">
@@ -48,7 +48,7 @@
                   </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-6">
+                <div class="col-md-6">
                   <div class="form-group">
                     <label>Tanggal Lahir</label>
                     <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="birth_date">
@@ -111,9 +111,9 @@
           <!-- /.card -->
         </form>
         <!-- /.form -->
-      </div>
+      {{-- </div> --}}
       <!-- /.col -->
-    </div>
+    {{-- </div> --}}
     <!-- /.row -->
   </div>
   <!-- /.container-fluid -->  
