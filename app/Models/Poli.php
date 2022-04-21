@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Poli extends Model
 {
+    protected $guarded = ['id'];
+
     use HasFactory;
 }

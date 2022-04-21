@@ -15,6 +15,8 @@ class CreatePolisTable extends Migration
     {
         Schema::create('polis', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('doctor_id');
             $table->timestamps();
         });
     }

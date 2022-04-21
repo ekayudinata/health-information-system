@@ -15,7 +15,10 @@ class PoliController extends Controller
      */
     public function index()
     {
-        //
+        return view ('dashboard.polis.index', [
+            'title' => 'Poli',
+            'polis' => Poli::all()
+        ]);
     }
 
     /**
@@ -25,7 +28,9 @@ class PoliController extends Controller
      */
     public function create()
     {
-        //
+        return view ('dashboard.polis.create', [
+            'title' => 'Poli',
+        ]);
     }
 
     /**
@@ -36,7 +41,14 @@ class PoliController extends Controller
      */
     public function store(StorePoliRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'doctor_id' => 'required'
+        ]);
+
+        Poli::create($validatedData);
+
+        return redirect('/dashboard/polis')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -58,7 +70,10 @@ class PoliController extends Controller
      */
     public function edit(Poli $poli)
     {
-        //
+        return view ('dashboard.polis.create', [
+            'title' => 'Poli',
+            'poli' => $poli
+        ]);
     }
 
     /**
@@ -70,7 +85,15 @@ class PoliController extends Controller
      */
     public function update(UpdatePoliRequest $request, Poli $poli)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'doctor_id' => 'required'
+        ]);
+
+        Poli::where('id', $poli->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/polis')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -81,6 +104,7 @@ class PoliController extends Controller
      */
     public function destroy(Poli $poli)
     {
-        //
+        Poli::destroy($poli->id);
+        return redirect('/dashboard/polis')->with('success', 'Data berhasil dihapus');
     }
 }

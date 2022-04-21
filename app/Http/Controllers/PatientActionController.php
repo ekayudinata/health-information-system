@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PatientAction;
 use App\Http\Requests\StorePatientActionRequest;
 use App\Http\Requests\UpdatePatientActionRequest;
+use App\Models\Patient;
 
 class PatientActionController extends Controller
 {
@@ -15,7 +16,10 @@ class PatientActionController extends Controller
      */
     public function index()
     {
-        //
+        return view ('dashboard.patientactions.index', [
+            'title' => 'Tindakan Pasien',
+            'patientactions' => PatientAction::all()
+        ]);
     }
 
     /**
@@ -25,7 +29,9 @@ class PatientActionController extends Controller
      */
     public function create()
     {
-        //
+        return view ('dashboard.patientactions.create', [
+            'title' => 'Tindakan Pasien',
+        ]);
     }
 
     /**
@@ -36,7 +42,13 @@ class PatientActionController extends Controller
      */
     public function store(StorePatientActionRequest $request)
     {
-        //
+        $validatedData = $request->validate([
+            'action' => 'required'
+        ]);
+
+        PatientAction::create($validatedData);
+
+        return redirect('/dashboard/patientactions')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -58,7 +70,10 @@ class PatientActionController extends Controller
      */
     public function edit(PatientAction $patientAction)
     {
-        //
+        return view ('dashboard.patientactions.create', [
+            'title' => 'Tindakan Pasien',
+            'patientaction' => $patientAction
+        ]);
     }
 
     /**
@@ -70,7 +85,14 @@ class PatientActionController extends Controller
      */
     public function update(UpdatePatientActionRequest $request, PatientAction $patientAction)
     {
-        //
+        $validatedData = $request->validate([
+            'action' => 'required'
+        ]);
+
+        PatientAction::where('id', $patientAction->id)
+            ->update($validatedData);
+
+        return redirect('/dashboard/patientactions')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -81,6 +103,7 @@ class PatientActionController extends Controller
      */
     public function destroy(PatientAction $patientAction)
     {
-        //
+        PatientAction::destroy($patientAction->id);
+        return redirect('/dashboard/patientactions')->with('success', 'Data berhasil dihapus');
     }
 }
