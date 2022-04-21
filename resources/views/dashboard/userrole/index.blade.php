@@ -37,34 +37,10 @@
                                 <a href="/dashboard/userrole/{{ $userrole->id  }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                                 {{-- <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a> --}}
                              
-                                <form action="/dashboard/userrole/{{  $userrole->id }}" method="post" class="d-inline">
+                                <form action="/dashboard/userrole/{{ $userrole->id }}" method="post" class="d-inline">
                                   @method('delete')
                                   @csrf
-
-                                  <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fas fa-trash"></i>
-                                  </button>
-
-                                   <!-- Modal -->
-                                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <div class="modal-body">
-                                         <h4>Yakin hapus data ini ? </h4>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button type="submit" class="btn btn-danger">Hapus</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                  <button class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Anda yakin?')"><i class="fas fa-trash"></i></button>
                                 </form>
                               </td>
                           </tr>
