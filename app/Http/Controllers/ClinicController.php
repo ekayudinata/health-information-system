@@ -16,7 +16,8 @@ class ClinicController extends Controller
     public function index()
     {
         return view('dashboard/clinics/index', [
-            'title' => 'Klinik'
+            'title' => 'Klinik',
+            'clinics' => Clinic::all(),
         ]);
     }
 

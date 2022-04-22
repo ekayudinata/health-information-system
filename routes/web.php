@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
@@ -51,8 +52,9 @@ Route::resource('/dashboard/employeeposition', EmployeePositionController::class
 
 Route::resource('/dashboard/employee',EmployeeController::class)->middleware('auth');
 
+Route::resource('/dashboard/clinics',ClinicController::class);
 
-Route::resource('/dashboard/patientactions',PatientActionController::class);
+Route::resource('/dashboard/patientactions',PatientActionController::class)->middleware('auth');
 
 
 // Route::get('/dashboard/useraccount',function (){
