@@ -27,6 +27,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>Id pasient</th>
                             <th>No. RM</th>
                             <th>Nama</th>
                             <th>Telepon</th>
@@ -38,6 +39,7 @@
                     <tbody>
                     @foreach ($patients as $patient)
                     <tr>
+                      <td>{{ $patient->id }}</td>
                         <td>{{ $patient->medic_record }}</td>
                         <td>{{ $patient->name }}</td>
                         <td>{{ $patient->phone }}</td>

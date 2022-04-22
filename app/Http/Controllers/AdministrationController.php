@@ -40,7 +40,19 @@ class AdministrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'medic_record' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'birth_date' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'nationality' => 'required',
+            'id_card_number' => 'required',
+            'bpjs_number' => 'required',
+            'bpjs_medic' => 'required'
+        ]); 
+    
     }
 
     /**

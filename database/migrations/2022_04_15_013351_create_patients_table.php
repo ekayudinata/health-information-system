@@ -25,6 +25,7 @@ class CreatePatientsTable extends Migration
             $table->string('id_card_number');
             $table->string('bpjs_number');
             $table->string('bpjs_medic');
+            $table->enum('type', ['Umum','BPJS','Managedcare','Asuransi']);
             $table->timestamps();
         });
     }

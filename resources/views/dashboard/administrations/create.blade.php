@@ -17,7 +17,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
-        <form method="post" action="/dashboard/patients">
+        <form method="post" action="/dashboard/administration">
           @csrf
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -26,9 +26,23 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6">
+
                   <div class="form-group">
-                    <label>No RM</label>
-                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record') }}">
+                    <label>Jenis Pasien</label>
+                    <select name="type" class="form-control">
+                      <option value="Umum">Umum</option>
+                      <option value="BPJS">BPJS</option>
+                      <option value="Managedcare">Managedcare</option>
+                      <option value="Asuransi">Asuransi</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Pilih Poli</label>
+                    <select name="work_status" class="form-control">
+                      <option value="poliumum">Poli Umum</option>
+                      <option value="poligigi">Poli Gigi</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>
@@ -98,27 +112,6 @@
                       </div>
                     @enderror --}}
                   </div>
-                  <div class="form-group">
-                    <label>Jenis Pasien</label>
-                    <select name="work_status" class="form-control">
-                      <option value="DW">Umum</option>
-                      <option value="Trainning">BPJS</option>
-                      <option value="Kontrak">Asuransi</option>
-                      <option value="Kontrak">Managedcare</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label>Pilih Poli</label>
-                    <select name="work_status" class="form-control">
-                      <option value="DW">Umum</option>
-                      <option value="Trainning">BPJS</option>
-                      <option value="Kontrak">Asuransi</option>
-                      <option value="Kontrak">Managedcare</option>
-                    </select>
-                  </div>
-
-
                 </div>
                 <!-- /.col -->
               </div>
@@ -126,7 +119,7 @@
             </div>
             <!-- /.card body -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Daftarkan Pasien</button>
             </div>
           </div>
           <!-- /.card -->
