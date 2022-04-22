@@ -32,17 +32,19 @@
                             <th>Telepon</th>
                             <th>Alamat</th>
                             <th>Tgl. Lahir</th>
+                            <th>Jenis Pasien</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach ($patients as $patient)
                     <tr>
-                        <td>{{ $patient->medic_record }}</td>
+                        <td>{{ $patient->medic_record_number }}</td>
                         <td>{{ $patient->name }}</td>
                         <td>{{ $patient->phone }}</td>
                         <td>{{ $patient->address }}</td>
                         <td>{{ $patient->birth_date }}</td>
+                        <td>{{ $patient->type }}</td>
                         <td>
                           <a href="/dashboard/patients/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                           <form action="/dashboard/patients/{{ $patient->id }}" method="post" class="d-inline">

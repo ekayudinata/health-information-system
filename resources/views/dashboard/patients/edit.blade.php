@@ -28,8 +28,28 @@
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
+                    <label>Jenis Pasien</label>
+                    {{-- <select name="type" class="form-control">  
+                      @foreach ($patients as $patient)
+                      @if (old('type', $patient->type))
+                    <option value="{{ $patient->type }}" selected>{{ $patient->type }}</option>
+                      @else
+                    <option value="{{ $patient->type }}">{{ $patient->type }}</option>
+                      @endif
+                      @endforeach
+                  </select> --}}
+                    <select name="type" class="form-control">
+                      <option value="{{ $patient->type }}" selected>{{ $patient->type }}</option>
+                      <option value="" disabled>------------</option>
+                      <option value="Umum">Umum</option>
+                      <option value="BPJS">BPJS</option>
+                      <option value="Managedcare">Managedcare</option>
+                      <option value="Asuransi">Asuransi</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label>No RM</label>
-                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record', $patient->medic_record) }}">
+                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record_number" required value="{{ old('medic_record_number', $patient->medic_record_number) }}">
                   </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>

@@ -27,8 +27,18 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
+                    <label>Jenis Pasien</label>
+                    <select name="type" class="form-control">
+                      <option value="">Jenis Pasien</option>
+                      <option value="Umum">Umum</option>
+                      <option value="BPJS">BPJS</option>
+                      <option value="Managedcare">Managedcare</option>
+                      <option value="Asuransi">Asuransi</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label>No RM</label>
-                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record" required value="{{ old('medic_record') }}">
+                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record_number" required value="{{ old('medic_record_number') }}">
                   </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>

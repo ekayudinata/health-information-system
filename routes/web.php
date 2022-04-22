@@ -68,8 +68,28 @@ Route::resource('/dashboard/employee',EmployeeController::class)->middleware('au
 //     ]); 
 // });
 
-// Route::get('/dashboard/employee/edit',function (){
-//     return view('dashboard.employee.edit', [
-//         'title' => "dashboard"
-//     ]); 
-// });
+Route::get('/dashboard/service/action',function (){
+    return view('dashboard.service.action.index', [
+        'title' => "dashboard"
+    ]); 
+});
+Route::get('/dashboard/service/report',function (){
+    return view('dashboard.service.report.index', [
+        'title' => "dashboard"
+    ]); 
+});
+Route::get('/dashboard/polis',function (){
+    return view('dashboard.polis.index', [
+        'title' => "Data Poli"
+    ]); 
+});
+Route::get('/dashboard/polis/create',function (){
+    return view('dashboard.polis.create', [
+        'title' => "Poli"
+    ]); 
+});
+Route::get('/dashboard/polis/edit',function (){
+    return view('dashboard.polis.edit', [
+        'title' => "Poli"
+    ]); 
+});
