@@ -42,8 +42,8 @@ class PatientController extends Controller
      */
     public function store(StorePatientRequest $request)
     {
+        // dd($request->all());
         $validatedData = $request->validate([
-            'medic_record' => 'required',
             'name' => 'required',
             'gender' => 'required',
             'birth_date' => 'required',
@@ -52,7 +52,8 @@ class PatientController extends Controller
             'nationality' => 'required',
             'id_card_number' => 'required',
             'bpjs_number' => 'required',
-            'bpjs_medic' => 'required'
+            'bpjs_medic' => 'required',
+            'type' => 'required'
         ]); 
 
         Patient::create($validatedData);
@@ -96,7 +97,6 @@ class PatientController extends Controller
     {
         // dd($request->all());
         $validatedData = $request->validate([
-            'medic_record' => 'required',
             'name' => 'required',
             'gender' => 'required',
             'birth_date' => 'required',
@@ -105,7 +105,8 @@ class PatientController extends Controller
             'nationality' => 'required',
             'id_card_number' => 'required',
             'bpjs_number' => 'required',
-            'bpjs_medic' => 'required'
+            'bpjs_medic' => 'required',
+            'type' => 'required'
         ]); 
 
         // dd($validatedData); 

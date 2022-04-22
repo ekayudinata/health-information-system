@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\UserRole;
 use Illuminate\Http\Request;
 use App\Models\EmployeePosition;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -54,6 +55,7 @@ class UserController extends Controller
             'user_role_id' => 'required',
             'employee_id' => 'required'
         ]); 
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);

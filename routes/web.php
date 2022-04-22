@@ -8,6 +8,7 @@ use App\Http\Controllers\InpatientAdministrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PoliController;
 use App\Models\Employee;
 use App\Models\Patient;
 use App\Models\User;
@@ -70,8 +71,16 @@ Route::resource('/dashboard/administration', AdministrationController::class);
 //     ]); 
 // });
 
-// Route::get('/dashboard/employee/edit',function (){
-//     return view('dashboard.employee.edit', [
-//         'title' => "dashboard"
-//     ]); 
-// });
+Route::get('/dashboard/service/action',function (){
+    return view('dashboard.service.action.index', [
+        'title' => "dashboard"
+    ]); 
+});
+
+Route::get('/dashboard/service/report',function (){
+    return view('dashboard.service.report.index', [
+        'title' => "dashboard"
+    ]); 
+});
+
+Route::resource('/dashboard/polis',PoliController::class);

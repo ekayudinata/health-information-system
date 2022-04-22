@@ -28,18 +28,19 @@ class DatabaseSeeder extends Seeder
             'employee_id' => 1
         ]);
 
-        Patient::create([
-            'medic_record' => 'U# 309854',
-            'name' => 'NI KETUT SARMAWI',
-            'gender' => 'P',
-            'birth_date' => '1970-02-23',
-            'address' => 'JL. GADUNG GG XI/3 DPS',
-            'phone' => '082147958349',
-            'nationality' => 'WNI',
-            'id_card_number' => '3306124403910302',
-            'bpjs_number' => '0001308270036',
-            'bpjs_medic' => 'FASKES JIMBARAN'
-        ]);
+        // Patient::create([
+        //     'medic_record_number' => 'U# 309854',
+        //     'name' => 'NI KETUT SARMAWI',
+        //     'gender' => 'P',
+        //     'birth_date' => '1970-02-23',
+        //     'address' => 'JL. GADUNG GG XI/3 DPS',
+        //     'phone' => '082147958349',
+        //     'nationality' => 'WNI',
+        //     'id_card_number' => '3306124403910302',
+        //     'bpjs_number' => '0001308270036',
+        //     'bpjs_medic' => 'FASKES JIMBARAN',
+        //     'type' => 'BPJS'
+        // ]);
 
         Employee::create([
             'name' => 'NI WAYAN SUDIATI',

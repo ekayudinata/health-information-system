@@ -41,7 +41,6 @@ class AdministrationController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'medic_record' => 'required',
             'name' => 'required',
             'gender' => 'required',
             'birth_date' => 'required',

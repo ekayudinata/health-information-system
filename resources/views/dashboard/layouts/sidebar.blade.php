@@ -3,8 +3,8 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-laptop-medical"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Health I.S.</div>
     </a>
@@ -19,7 +19,6 @@
             <span>Dashboard</span></a>
     </li>
 
-
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -33,6 +32,17 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>Admisi</span>
         </a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseService"
+            aria-expanded="true" aria-controls="colapseService">
+            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>
+            <span>Pelayanan </span>
+        </a>
+        <div id="colapseService" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/service/action">Tindakan </a>
+                <a class="collapse-item" href="/dashboard/service/report">Laporan </a>
+            </div>
+        </div>
     </li>
 
 
@@ -85,6 +95,20 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="/dashboard/employee">Data Pegawai</a>
                 <a class="collapse-item" href="/dashboard/employee/create">Tambah Data</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapsePolis"
+            aria-expanded="true" aria-controls="colapsePolis">
+            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>
+            <span>Poli</span>
+        </a>
+        <div id="colapsePolis" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/polis">Data Poli </a>
+                <a class="collapse-item" href="/dashboard/polis/create">Tambah Data </a>
             </div>
         </div>
     </li>

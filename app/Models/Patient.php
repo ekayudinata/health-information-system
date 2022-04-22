@@ -23,7 +23,7 @@ class Patient extends Model
                 $newnumberrm= $lastpatient->id + 1; 
             }
             
-            $model->medic_record= 'RM'.'-'. str_pad($newnumberrm, 5,'0',STR_PAD_LEFT); 
+            $model->medic_record_number= 'RM'.'-'. str_pad($newnumberrm, 5,'0',STR_PAD_LEFT); 
         }); 
     }
 

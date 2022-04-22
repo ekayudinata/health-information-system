@@ -71,6 +71,7 @@
                   <div class="form-group">
                     <label>Status Pekerjaan</label>
                     <select name="work_status" class="form-control">
+                      <option value="">Pilih Status Pekerjaan</option>
                       <option value="DW">DW</option>
                       <option value="Trainning">Trainning</option>
                       <option value="Kontrak">Kontrak</option>

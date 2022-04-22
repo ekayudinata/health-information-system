@@ -67,7 +67,7 @@
                     <label>Posisi</label>
                     <select name="employeeposition_id" class="form-control">
                         @foreach ($employeepositions as $employeeposition)
-                        @if (old('employeeposition_id') == $employeeposition->id)
+                        @if (old('employeeposition_id', $employee->employeeposition_id) == $employeeposition->id)
                       <option value="{{ $employeeposition->id }}" selected>{{ $employeeposition->name_position }}</option>
                         @else
                       <option value="{{ $employeeposition->id }}">{{ $employeeposition->name_position }}</option>
@@ -109,6 +109,7 @@
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
+        </div>
         <!-- /.card -->
       </div>
       <!-- /.col -->
