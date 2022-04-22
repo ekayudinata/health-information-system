@@ -45,13 +45,13 @@
                 <label>Nama Dokter</label>
                 <select name="employee_id" class="form-control">
                   <option value="">Pilih Dokter</option>
-                    {{-- @foreach ($employees as $employee)
-                    @if (old('employee_id') == $employee->id)
-                  <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
-                    @else
-                  <option value="{{ $employee->id }}">{{ $employee->name }}</option>
-                    @endif
-                    @endforeach --}}
+                  {{-- @foreach ($employees as $employee)
+                  @if (old('employee_id') == $employee->id)
+                <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
+                  @else
+                <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                  @endif
+                  @endforeach --}}
                 </select>
              </div>
             </div>

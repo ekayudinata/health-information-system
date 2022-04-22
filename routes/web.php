@@ -6,8 +6,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PatientActionController;
 use App\Models\Employee;
 use App\Models\Patient;
+use App\Models\PatientAction;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +50,9 @@ Route::resource('/dashboard/userrole', UserRoleController::class)->middleware('a
 Route::resource('/dashboard/employeeposition', EmployeePositionController::class)->middleware('auth'); 
 
 Route::resource('/dashboard/employee',EmployeeController::class)->middleware('auth');
+
+
+Route::resource('/dashboard/patientactions',PatientActionController::class);
 
 
 // Route::get('/dashboard/useraccount',function (){

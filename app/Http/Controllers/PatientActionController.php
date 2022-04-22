@@ -68,12 +68,14 @@ class PatientActionController extends Controller
      * @param  \App\Models\PatientAction  $patientAction
      * @return \Illuminate\Http\Response
      */
-    public function edit(PatientAction $patientAction)
+    public function edit($id)
     {
-        return view ('dashboard.patientactions.create', [
+        $patientAction = PatientAction::find($id);
+        return view ('dashboard.patientactions.edit', [
             'title' => 'Tindakan Pasien',
             'patientaction' => $patientAction
         ]);
+        
     }
 
     /**
@@ -88,11 +90,13 @@ class PatientActionController extends Controller
         $validatedData = $request->validate([
             'action' => 'required'
         ]);
+        // dd($validatedData); 
 
         PatientAction::where('id', $patientAction->id)
             ->update($validatedData);
 
         return redirect('/dashboard/patientactions')->with('success', 'Data berhasil diubah');
+        
     }
 
     /**
@@ -101,9 +105,9 @@ class PatientActionController extends Controller
      * @param  \App\Models\PatientAction  $patientAction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PatientAction $patientAction)
+    public function destroy($id)
     {
-        PatientAction::destroy($patientAction->id);
+        PatientAction::destroy($id);
         return redirect('/dashboard/patientactions')->with('success', 'Data berhasil dihapus');
     }
 }

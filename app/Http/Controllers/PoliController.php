@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Poli;
 use App\Http\Requests\StorePoliRequest;
 use App\Http\Requests\UpdatePoliRequest;
+use App\Models\Employee;
 
 class PoliController extends Controller
 {
@@ -30,6 +31,7 @@ class PoliController extends Controller
     {
         return view ('dashboard.polis.create', [
             'title' => 'Poli',
+            'employees' => Employee::all()
         ]);
     }
 
