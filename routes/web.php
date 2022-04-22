@@ -7,7 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientActionController;
+use App\Http\Controllers\MedicRecordController;
 use App\Models\Employee;
+use App\Models\MedicRecord;
 use App\Models\Patient;
 use App\Models\PatientAction;
 use App\Models\User;
@@ -51,27 +53,10 @@ Route::resource('/dashboard/employeeposition', EmployeePositionController::class
 
 Route::resource('/dashboard/employee',EmployeeController::class)->middleware('auth');
 
+Route::resource('/dashboard/patientactions',PatientActionController::class)->middleware('auth');
 
-Route::resource('/dashboard/patientactions',PatientActionController::class);
+Route::resource('/dashboard/service/action',MedicRecordController::class)->middleware('auth');
 
-
-// Route::get('/dashboard/useraccount',function (){
-//     return view('dashboard.useraccount.index', [
-//         'title' => "dashboard"
-//     ]); 
-// });
-
-// Route::get('/dashboard/useraccount/edit',function (){
-//     return view('dashboard.useraccount.edit', [
-//         'title' => "dashboard"
-//     ]); 
-// }); 
-
-// Route::get('/dashboard/useraccount/create',function (){
-//     return view('dashboard.useraccount.create', [
-//         'title' => "dashboard"
-//     ]); 
-// });
 
 Route::get('/dashboard/service/action',function (){
     return view('dashboard.service.action.index', [
