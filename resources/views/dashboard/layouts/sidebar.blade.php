@@ -149,7 +149,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapsepatientactions"
             aria-expanded="true" aria-controls="colapsepatientactions">
-            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>
+            <i class="fas fa-fw fa-cog"></i>
             <span>Tindakan Pasien</span>
         </a>
         <div id="colapsepatientactions" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
