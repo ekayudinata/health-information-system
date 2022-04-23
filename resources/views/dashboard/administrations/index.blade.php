@@ -21,8 +21,10 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <a href="/dashboard/administration/create" type="button" class="btn btn-primary"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Pasien Baru</a>
-                <a href="" type="button" class="btn btn-primary float-right"> <i class="fa fa-list-ul" aria-hidden="true"></i> Pasien Lama</a>
-            </div>
+                
+                <a href="/dashboard/administration/listpatient" type="button" class="btn btn-primary float-right"> <i class="fa fa-list-ul" aria-hidden="true"></i> Pasien Lama</a>
+           
+              </div>
             <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

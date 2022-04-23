@@ -148,4 +148,12 @@ class AdministrationController extends Controller
     {
         //
     }
+
+
+    public function searchingpatient(){
+        return view('dashboard.administrations.listpatient',
+        [
+            'title' => 'list patient'
+        ] ); 
+    }
 }

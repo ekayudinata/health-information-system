@@ -51,7 +51,9 @@ Route::resource('/dashboard/userrole', UserRoleController::class)->middleware('a
 Route::resource('/dashboard/employeeposition', EmployeePositionController::class)->middleware('auth'); 
 
 Route::resource('/dashboard/employee',EmployeeController::class);
-Route::resource('/dashboard/administration', AdministrationController::class); 
+Route::get('/dashboard/administration/listpatient',[AdministrationController::class,'searchingpatient']);
+Route::resource('/dashboard/administration', AdministrationController::class);
+
 
 // Route::get('/dashboard/useraccount',function (){
 //     return view('dashboard.useraccount.index', [
