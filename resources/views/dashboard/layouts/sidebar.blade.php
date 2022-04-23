@@ -109,6 +109,20 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseclinics "
+            aria-expanded="true" aria-controls="colapseclinics ">
+            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-hospital"></i>
+            <span>Klinik</span>
+        </a>
+        <div id="colapseclinics" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/dashboard/clinics">Data Klinik </a>
+                <a class="collapse-item" href="/dashboard/clinics/create">Tambah Data </a>
+            </div>
+        </div>
+    </li>
+
     @endcan
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -149,7 +163,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapsepatientactions"
             aria-expanded="true" aria-controls="colapsepatientactions">
-            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>
+            <i class="fas fa-fw fa-cog"></i>
             <span>Tindakan Pasien</span>
         </a>
         <div id="colapsepatientactions" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

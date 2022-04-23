@@ -85,14 +85,14 @@ class PatientActionController extends Controller
      * @param  \App\Models\PatientAction  $patientAction
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePatientActionRequest $request, PatientAction $patientAction)
+    public function update(UpdatePatientActionRequest $request, PatientAction $patientAction, $id)
     {
         $validatedData = $request->validate([
             'action' => 'required'
         ]);
         // dd($validatedData); 
 
-        PatientAction::where('id', $patientAction->id)
+        PatientAction::where('id', $id)
             ->update($validatedData);
 
         return redirect('/dashboard/patientactions')->with('success', 'Data berhasil diubah');
