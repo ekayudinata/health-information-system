@@ -53,7 +53,8 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
             'user_role_id' => 'required',
-            'employee_id' => 'required'
+            'employee_id' => 'required',
+            'clinic_id' => 'required'
         ]); 
         $validatedData['password'] = Hash::make($validatedData['password']);
 
@@ -111,7 +112,8 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'user_role_id' => 'required',
-            'employee_id' => 'required'
+            'employee_id' => 'required',
+            'clinic_id' => 'required'
         ]);
 
             // dd($validateData);

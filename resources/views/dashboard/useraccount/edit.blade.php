@@ -102,6 +102,19 @@
                     @endforeach
                 </select>
              </div>
+             <div class="form-group">
+              <label>Lokasi Standbay</label>
+              <select name="clinic_id" class="form-control">
+                <option value="">Pilih Lokasi Standbay [get data clinic]</option>
+                  @foreach ($employees as $employee)
+                  @if (old('employee_id') == $employee->id)
+                <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
+                  @else
+                <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                  @endif
+                  @endforeach
+              </select>
+            </div>
             </div>
             <!-- /.card-body -->
 

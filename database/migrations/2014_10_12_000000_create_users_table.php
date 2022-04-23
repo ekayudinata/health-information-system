@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->foreignId('user_role_id');
             $table->foreignId('employee_id');
+            $table->foreignId('clinic_id');
             $table->rememberToken();
             $table->timestamps();
         });
