@@ -53,7 +53,7 @@
               </div>
               <div class="form-group">
                 <label>No. Telp</label>
-                <input type="text" name="phone" class="form-control form-control-user @error('phone') is-invalid @enderror" id="phone" aria-describedby="phone" placeholder="Nama klinik... " value="{{ $clinic->phone }}">
+                <input type="number" name="phone" class="form-control form-control-user @error('phone') is-invalid @enderror" id="phone" aria-describedby="phone" placeholder="Nama klinik... " value="{{ $clinic->phone }}">
                 {{-- @error('phone')
                   <div class="invalid-feedback">
                     {{ $message }}

@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Patient;
 use App\Models\UserRole;
+use App\Models\Clinic;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,7 +26,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'adipa@omsamedic.com',
             'password' => bcrypt('12345'),
             'user_role_id' => 1,
-            'employee_id' => 1
+            'employee_id' => 1,
+            'clinic_id' => 1
         ]);
 
         Patient::create([
@@ -43,9 +45,18 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Employee::create([
-            'name' => 'NI WAYAN SUDIATI',
+            'name' => 'I Putu Adipa',
+            'gender' => 'L',
+            'address' => 'Jl. Makmur Sempurna No. 10 Kuta',
+            'phone' => '089378277564',
+            'employeeposition_id' => 2,
+            'work_status' => 'DW'
+        ]);
+
+        Employee::create([
+            'name' => 'Ni Wayan Sudiati',
             'gender' => 'P',
-            'address' => 'JL. PADMA GG XI/3 DPS',
+            'address' => 'Jl. Padma Gg XI/3 Denpasar',
             'phone' => '082141727111',
             'employeeposition_id' => 1,
             'work_status' => 'DW'
@@ -63,6 +74,17 @@ class DatabaseSeeder extends Seeder
         ]);
         UserRole::create([
             'role' => 'Admin Finance'
+        ]);
+
+        Clinic::create([
+            'name' => 'Klinik Mandiri Denpasar',
+            'address' => 'Jl. Merdeka Raya No.25',
+            'phone' => '082182890379'
+        ]);
+        Clinic::create([
+            'name' => 'Klinik Mandiri Kuta',
+            'address' => 'Jl. Kuta Timur No.43',
+            'phone' => '089337274627'
         ]);
     }
 }

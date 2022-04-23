@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UserRole;
 use App\Models\Employee;
-use App\Models\EmployeePosition;
+use App\Models\Clinic;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -36,7 +36,8 @@ class UserController extends Controller
         return view('dashboard.useraccount.create', [
             'title' => 'Akun User',
             'userroles' => UserRole::all(),
-            'employees' => Employee::all()
+            'employees' => Employee::all(),
+            'clinics' => Clinic::all()
         ]);
     }
 
@@ -94,7 +95,8 @@ class UserController extends Controller
             'title' => "Ubah Akun User",
             'user' => $datauser,
             'userroles' => UserRole::all(),
-            'employees' => Employee::all()
+            'employees' => Employee::all(),
+            'clinics' => Clinic::all()
         ]);
     }
 

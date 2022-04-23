@@ -52,7 +52,7 @@
               </div>
               <div class="form-group">
                 <label>No. Telp</label>
-                <input type="text" class="form-control " placeholder="No. Telp" name="phone" required value="">
+                <input type="number" class="form-control " placeholder="No. Telp" name="phone" required value="">
                 {{-- @error('phone')
                   <div class="invalid-feedback">
                     {{ $message }}
