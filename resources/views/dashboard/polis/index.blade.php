@@ -34,10 +34,12 @@
                         <tbody>
                         @foreach ($polis as $poli)
                           <tr>
-                              <td>$loop->iteration </td>
+                              <td>{{  $loop->iteration   }}</td>
                               <td>{{ $poli->name }}</td>
                               @foreach ($employees as $employee)
-                              <td></td>
+                              @if ($poli->doctor_id == $employee->id)
+                                <td>{} </td>
+                              @endif
                               @endforeach
                               
                               <td>
