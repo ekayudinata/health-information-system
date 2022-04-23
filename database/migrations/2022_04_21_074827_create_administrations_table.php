@@ -16,7 +16,8 @@ class CreateAdministrationsTable extends Migration
         Schema::create('administrations', function (Blueprint $table) {
             $table->id();
             $table->enum('status', ['Dilayani', 'Dibatalkan', 'Dipulangkan']);
-            $table->foreignId('pateint_id');
+            $table->foreignId('patient_id');
+            $table->foreignId('clinic_id');
             $table->foreignId('poli_id');
             $table->timestamps();
         });

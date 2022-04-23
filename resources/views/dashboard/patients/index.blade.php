@@ -40,6 +40,7 @@
                     <tbody>
                     @foreach ($patients as $patient)
                     <tr>
+                      <td>{{ $patient->id }}</td>
                         <td>{{ $patient->medic_record_number }}</td>
                         <td>{{ $patient->name }}</td>
                         <td>{{ $patient->phone }}</td>

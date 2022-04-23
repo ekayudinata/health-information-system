@@ -28,11 +28,11 @@
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr>
-                              <th>No. RM</th>
-                              <th>Nama</th>
-                              <th>Telepon</th>
-                              <th>Alamat</th>
-                              <th>Tgl. Lahir</th>
+                              <th>Id</th>
+                              <th>Status Layanan</th>
+                              <th>Id Patient</th>
+                              <th>Id Klinik</th>
+                              <th>Id Poli</th>
                               <th>Aksi</th>
                           </tr>
                       </thead>
@@ -40,15 +40,15 @@
                       @foreach ($administrations as $administration)
                       <tr>
 
-                          <td>{{  $loop->iteration  }}</td>
-                          <td>{{ $loop->iteration  }}</td>
-                          <td>{{  $loop->iteration  }}</td>
-                          <td>{{  $loop->iteration }}</td>
-                          <td>{{  $loop->iteration  }}</td>
+                          <td>{{  $administration->id }}</td>
+                          <td>{{ $administration->status }}</td>
+                          <td>{{ $administration->patient_id  }}</td>
+                          <td>{{ $administration->clinic_id  }}</td>
+                          <td>{{  $administration->poli_id  }}</td>
 
                           <td>
-                            <a href="/dashboard/patients/{{ $patient->id }}/edit" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
-                            <form action="/dashboard/patients/{{ $patient->id }}" method="post" class="d-inline">
+                            <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
+                            <form action="#" method="post" class="d-inline">
                               @method('delete')
                               @csrf
                               <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal">

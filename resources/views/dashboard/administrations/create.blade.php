@@ -39,9 +39,10 @@
 
                   <div class="form-group">
                     <label>Pilih Poli</label>
-                    <select name="work_status" class="form-control">
-                      <option value="poliumum">Poli Umum</option>
-                      <option value="poligigi">Poli Gigi</option>
+                    <select name="poli_id" class="form-control">
+                      @foreach ($polis as $poli)
+                      <option value="{{ $poli->id }}">{{ $poli->name }}</option>
+                      @endforeach
                     </select>
                   </div>
                   <div class="form-group">
@@ -65,7 +66,7 @@
                 <div class="col-6">
                   <div class="form-group">
                     <label>Tanggal Lahir</label>
-                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="birth_date">
+                    <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="birth_date">
                     {{-- @error('name')
                       <div class="invalid-feedback">
                         {{ $message }}

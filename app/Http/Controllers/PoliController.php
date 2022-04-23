@@ -76,9 +76,10 @@ class PoliController extends Controller
      */
     public function edit(Poli $poli)
     {
-        return view ('dashboard.polis.create', [
+        return view('dashboard.polis.edit', [
             'title' => 'Poli',
-            'poli' => $poli
+            'poli' => $poli, 
+            'employees' => Employee::all()
         ]);
     }
 
