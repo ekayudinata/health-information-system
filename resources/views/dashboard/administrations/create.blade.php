@@ -15,9 +15,9 @@
 <!-- Main content -->
 <section class="content">
   <div class="container-fluid">
-    {{-- <div class="row"> --}}
-      {{-- <div class="col-12"> --}}
-        <form method="post" action="/dashboard/patients">
+    <div class="row">
+      <div class="col-12">
+        <form method="post" action="/dashboard/administration">
           @csrf
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -25,18 +25,26 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-6">
+
                   <div class="form-group">
                     <label>Jenis Pasien</label>
                     <select name="type" class="form-control">
-                      <option value="">Jenis Pasien</option>
                       <option value="Umum">Umum</option>
                       <option value="BPJS">BPJS</option>
                       <option value="Managedcare">Managedcare</option>
                       <option value="Asuransi">Asuransi</option>
                     </select>
                   </div>
-  
+
+                  <div class="form-group">
+                    <label>Pilih Poli</label>
+                    <select name="poli_id" class="form-control">
+                      @foreach ($polis as $poli)
+                      <option value="{{ $poli->id }}">{{ $poli->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
                   <div class="form-group">
                     <label>Nama Pasien</label>
                     <input type="text" class="form-control" placeholder="Input Nama Pasien" name="name" required value="">
@@ -55,10 +63,10 @@
                   </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-md-6">
+                <div class="col-6">
                   <div class="form-group">
                     <label>Tanggal Lahir</label>
-                    <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="birth_date">
+                    <input type="date" class="form-control" placeholder="YYYY-MM-DD" name="birth_date">
                     {{-- @error('name')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -112,15 +120,15 @@
             </div>
             <!-- /.card body -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Daftarkan Pasien</button>
             </div>
           </div>
           <!-- /.card -->
         </form>
         <!-- /.form -->
-      {{-- </div> --}}
+      </div>
       <!-- /.col -->
-    {{-- </div> --}}
+    </div>
     <!-- /.row -->
   </div>
   <!-- /.container-fluid -->  

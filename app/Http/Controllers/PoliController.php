@@ -6,6 +6,7 @@ use App\Models\Poli;
 use App\Http\Requests\StorePoliRequest;
 use App\Http\Requests\UpdatePoliRequest;
 use App\Models\Employee;
+use App\Models\EmployeePosition;
 
 class PoliController extends Controller
 {
@@ -16,9 +17,10 @@ class PoliController extends Controller
      */
     public function index()
     {
-        return view ('dashboard.polis.index', [
+        return view('dashboard.polis.index', [
             'title' => 'Poli',
-            'polis' => Poli::all()
+            'polis' => Poli::all(), 
+            'employees' => Employee::all()
         ]);
     }
 
@@ -29,7 +31,7 @@ class PoliController extends Controller
      */
     public function create()
     {
-        return view ('dashboard.polis.create', [
+        return view('dashboard.polis.create', [
             'title' => 'Poli',
             'employees' => Employee::all()
         ]);
@@ -43,6 +45,8 @@ class PoliController extends Controller
      */
     public function store(StorePoliRequest $request)
     {
+        // dd($request); 
+
         $validatedData = $request->validate([
             'name' => 'required',
             'doctor_id' => 'required'
@@ -72,9 +76,10 @@ class PoliController extends Controller
      */
     public function edit(Poli $poli)
     {
-        return view ('dashboard.polis.create', [
+        return view('dashboard.polis.edit', [
             'title' => 'Poli',
-            'poli' => $poli
+            'poli' => $poli, 
+            'employees' => Employee::all()
         ]);
     }
 

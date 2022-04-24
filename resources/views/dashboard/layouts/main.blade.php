@@ -52,6 +52,39 @@
                 @include('dashboard.layouts.header')
 
                 <div class="container-fluid">
+                    
+                    {{-- top navigation administration --}}
+                        {{-- @can('superadmin')
+                        @if (Request::is('dashboard/administration', 'dashboard/inpatient'))
+                        <div class="dropdown show d-inline">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Front Office
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">Pendaftaran Rawat Jalan </a>
+                              <a class="dropdown-item" href="/dashboard/inpatient">Pendaftaran Rawat Inap</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown show d-inline">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Back Office
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>  
+                        @endif
+                        @endcan --}}
+                    {{--end  top navigation administration --}}
+
+
+
                     @yield('container')
                 </div>
             </div> 

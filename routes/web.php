@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\AdministrationController;
 use App\Http\Controllers\EmployeePositionController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InpatientAdministrationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientActionController;
 use App\Http\Controllers\MedicRecordController;
+use App\Http\Controllers\PoliController;
 use App\Models\Employee;
 use App\Models\MedicRecord;
 use App\Models\Patient;
@@ -52,7 +55,9 @@ Route::resource('/dashboard/userrole', UserRoleController::class)->middleware('a
 
 Route::resource('/dashboard/employeeposition', EmployeePositionController::class)->middleware('auth'); 
 
-Route::resource('/dashboard/employee',EmployeeController::class)->middleware('auth');
+Route::resource('/dashboard/employee',EmployeeController::class);
+Route::get('/dashboard/administration/listpatient',[AdministrationController::class,'searchingpatient']);
+Route::resource('/dashboard/administration', AdministrationController::class);
 
 Route::resource('/dashboard/clinics',ClinicController::class);
 
@@ -66,23 +71,11 @@ Route::get('/dashboard/service/action',function (){
         'title' => "dashboard"
     ]); 
 });
+
 Route::get('/dashboard/service/report',function (){
     return view('dashboard.service.report.index', [
         'title' => "dashboard"
     ]); 
 });
-Route::get('/dashboard/polis',function (){
-    return view('dashboard.polis.index', [
-        'title' => "Data Poli"
-    ]); 
-});
-Route::get('/dashboard/polis/create',function (){
-    return view('dashboard.polis.create', [
-        'title' => "Poli"
-    ]); 
-});
-Route::get('/dashboard/polis/edit',function (){
-    return view('dashboard.polis.edit', [
-        'title' => "Poli"
-    ]); 
-});
+
+Route::resource('/dashboard/polis',PoliController::class);

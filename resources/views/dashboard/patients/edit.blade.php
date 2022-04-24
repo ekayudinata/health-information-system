@@ -48,10 +48,6 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>No RM</label>
-                    <input type="text" class="form-control" placeholder="Input No RM" name="medic_record_number" required value="{{ old('medic_record_number', $patient->medic_record_number) }}">
-                  </div>
-                  <div class="form-group">
                     <label>Nama Pasien</label>
                     <input type="text" class="form-control" placeholder="Input Nama Pasien" name="name" required value="{{ old('name', $patient->name) }}">
                   </div>

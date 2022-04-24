@@ -28,6 +28,10 @@
     </div>
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="/dashboard/administration">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Admisi</span>
+        </a>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseService"
             aria-expanded="true" aria-controls="colapseService">
             {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>

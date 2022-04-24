@@ -44,7 +44,6 @@ class PatientController extends Controller
     {
         // dd($request->all());
         $validatedData = $request->validate([
-            'medic_record_number' => 'required',
             'name' => 'required',
             'gender' => 'required',
             'birth_date' => 'required',
@@ -98,7 +97,6 @@ class PatientController extends Controller
     {
         // dd($request->all());
         $validatedData = $request->validate([
-            'medic_record_number' => 'required',
             'name' => 'required',
             'gender' => 'required',
             'birth_date' => 'required',

@@ -17,48 +17,45 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-
-        
-        {{-- @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              {{ session('success') }}
-            </div>
-        @endif --}}
-
         <div class="card shadow mb-4">
           <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Tambah Data {{ $title }}</h6>
           </div>
-          <form method="post" action="/dashboard/useraccount">
+          
+          <form method="post" action="/dashboard/polis">
             @csrf
             <div class="card-body">
               <div class="form-group">
                 <label>Nama Poli</label>
                 <input type="text" class="form-control" placeholder="Input Nama Poli" name="name" required value="">
-                {{-- @error('name')
+                @error('name')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
-                @enderror --}}
-              </div>
+                @enderror
+                </div>
+
               <div class="form-group">
                 <label>Nama Dokter</label>
-                <select name="employee_id" class="form-control">
+                <select name="doctor_id" class="form-control">
+
                   <option value="">Pilih Dokter</option>
-                  {{-- @foreach ($employees as $employee)
-                  @if (old('employee_id') == $employee->id)
-                <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
-                  @else
-                <option value="{{ $employee->id }}">{{ $employee->name }}</option>
-                  @endif
-                  @endforeach --}}
+                    @foreach ($employees as $employee)
+                      @if ($employee->employeeposition_id == 1)
+                      @if (old('doctor_id') == $employee->id)
+                              <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
+                            @else
+                                 <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                            @endif 
+                      @endif
+                    @endforeach
                 </select>
              </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Tambah Poli</button>
             </div>
           </form>
         <!-- /.card -->
