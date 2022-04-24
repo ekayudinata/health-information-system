@@ -71,14 +71,14 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label>Riwayat Sakit</label>
-                    <textarea class="form-control" name="level_of_consciousness" rows="3" cols="50" placeholder="Input Riwayat Sakit"></textarea>
+                    <textarea class="form-control" name="medical_history" rows="3" cols="50" placeholder="Input Riwayat Sakit"></textarea>
                   </div>
                 </div>
                 <!-- /.form-row -->
                 <div class="form-row">
                   <div class="form-group col-md-2">
                     <label>TK</label>
-                    <input type="text" class="form-control" placeholder="TK" name="#" required value="">
+                    <input type="text" class="form-control" placeholder="TK" name="level_of_consciousness" required value="">
                   </div>
                   <div class="form-group col-md-2">
                     <label>RR</label>
