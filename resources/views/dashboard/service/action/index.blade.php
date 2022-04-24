@@ -48,7 +48,7 @@
                                 <td>BPJS</td>
                                 <td><button class="btn btn-danger btn-sm">BELUM DILAYANI</button></td>
                                 <td><button class="btn btn-danger btn-sm">BELUM BAYAR</button></td>
-                                <td><button class="btn btn-primary btn-sm">LAYANI</button></td>
+                                <td><a href="/dashboard/service/action/create" class="btn btn-primary btn-sm">LAYANI</a></td>
                             </tr>
                         {{-- @foreach ($patients as $patient)
                         <tr>

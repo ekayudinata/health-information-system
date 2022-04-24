@@ -72,6 +72,12 @@ Route::get('/dashboard/service/action',function (){
     ]); 
 });
 
+Route::get('/dashboard/service/action/create',function (){
+    return view('dashboard.service.action.create', [
+        'title' => "dashboard"
+    ]); 
+});
+
 Route::get('/dashboard/service/report',function (){
     return view('dashboard.service.report.index', [
         'title' => "dashboard"
