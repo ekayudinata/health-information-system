@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PatientActionController;
 use App\Http\Controllers\MedicRecordController;
 use App\Http\Controllers\PoliController;
+use App\Http\Controllers\ServiceController;
 use App\Models\Employee;
 use App\Models\MedicRecord;
 use App\Models\Patient;
@@ -63,20 +64,8 @@ Route::resource('/dashboard/clinics',ClinicController::class);
 
 Route::resource('/dashboard/patientactions',PatientActionController::class)->middleware('auth');
 
-Route::resource('/dashboard/service/action',MedicRecordController::class)->middleware('auth');
-
-
-Route::get('/dashboard/service/action',function (){
-    return view('dashboard.service.action.index', [
-        'title' => "dashboard"
-    ]); 
-});
-
-Route::get('/dashboard/service/action/create',function (){
-    return view('dashboard.service.action.create', [
-        'title' => "dashboard"
-    ]); 
-});
+Route::get('/dashboard/service', [ServiceController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/service/action', [ServiceController::class, 'patientAction'])->middleware('auth');
 
 Route::get('/dashboard/service/report',function (){
     return view('dashboard.service.report.index', [
