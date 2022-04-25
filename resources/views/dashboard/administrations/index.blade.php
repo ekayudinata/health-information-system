@@ -30,23 +30,21 @@
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                       <thead>
                           <tr>
-                              <th>Id</th>
+                              <th>No Antrian</th>
+                              <th>Nama Pasien</th>
                               <th>Status Layanan</th>
-                              <th>Id Patient</th>
-                              <th>Id Klinik</th>
-                              <th>Id Poli</th>
+                              <th>Nama Poli</th>
                               <th>Aksi</th>
                           </tr>
                       </thead>
                       <tbody>
                       @foreach ($administrations as $administration)
                       <tr>
-
-                          <td>{{  $administration->id }}</td>
+                          <td>{{ $loop->iteration }}</td>
+                          <td>{{ $administration->patient->name}}</td>
                           <td>{{ $administration->status }}</td>
-                          <td>{{ $administration->patient_id  }}</td>
-                          <td>{{ $administration->clinic_id  }}</td>
-                          <td>{{  $administration->poli_id  }}</td>
+                          <td>{{ $administration->poli->name  }}</td>
+                          
 
                           <td>
                             <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>

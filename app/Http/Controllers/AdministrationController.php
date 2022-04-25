@@ -20,7 +20,7 @@ class AdministrationController extends Controller
 
         return view('dashboard.administrations.index',[
             'title' => "Administration", 
-            'administrations' => Administration::all()
+            'administrations' => Administration::whereDate('created_at','=',date('Y-m-d'))->with('patient','poli')->get()
         ]); 
 
     }
@@ -150,10 +150,33 @@ class AdministrationController extends Controller
     }
 
 
-    public function searchingpatient(){
+    public function listpatients(){
         return view('dashboard.administrations.listpatient',
         [
             'title' => 'list patient'
         ] ); 
+    }
+
+    public function searchingpatient(Request $request){
+
+
+        // $table->string('medic_record_number'); 
+        //     $table->string('name');
+        //     $table->enum('gender', ['L', 'P']);
+        //     $table->date('birth_date');
+        //     $table->string('address');
+        //     $table->string('phone');
+        //     $table->string('nationality');
+        //     $table->string('id_card_number');
+        //     $table->string('bpjs_number');
+        //     $table->string('bpjs_medic');
+        //     $table->enum('type', ['Umum','BPJS','Managedcare','Asuransi']);
+
+        $patients = Patient::where('name','like','%'.$request->name.'%')
+                            ->orWhere('phone','like','%'.$request->name.'%')
+                            ->orWhere('birth_date','like','%'.$request->name.'%')
+                            ->orWhere('id_card_number','like','%'.$request->name.'%')
+                            ->get(); 
+                            dd($patients->toArray()); 
     }
 }
