@@ -66,11 +66,6 @@ Route::resource('/dashboard/patientactions',PatientActionController::class)->mid
 Route::resource('/dashboard/service/action',MedicRecordController::class)->middleware('auth');
 
 
-Route::get('/dashboard/service/action',function (){
-    return view('dashboard.service.action.index', [
-        'title' => "dashboard"
-    ]); 
-});
 
 Route::get('/dashboard/service/action/create',function (){
     return view('dashboard.service.action.create', [

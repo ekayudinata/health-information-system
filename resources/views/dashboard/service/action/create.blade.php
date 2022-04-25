@@ -198,7 +198,7 @@
                   <div class="form-group col-md-12">
                     <label>Hasil Pemeriksaan Penunjang</label>
                     <div class="alert alert-danger" role="alert">
-                      <h4 class="alert-heading"><i class="fas fa-close" aria-hidden="true"></i> Hasil Pemeriksaan Belum Tersimpan</h4>
+                      <h4 class="alert-heading"><i class="fas fa-xmark"></i> Hasil Pemeriksaan Belum Tersimpan</h4>
                       <p>Silahkan input hasil pemeriksaan dengan tombol di bawah!</p>
                     </div>
                     <input type="file" class="form-control" placeholder="Input Hasil Pemeriksaan Penunjang" name="additional_data" required value="">

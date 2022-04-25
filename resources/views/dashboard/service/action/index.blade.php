@@ -40,9 +40,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                          @foreach ($medicrecords as $medicrecord)
                             <tr>
-                                <td>1</td>
-                                <td>MILCA AKILA</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $patient->name }}</td>
                                 <td>DR. ROMY KAMALUDDIN, S.KED., M. BIOMED (AAM)</td>
                                 <td>UMUM</td>
                                 <td>BPJS</td>
@@ -50,6 +51,7 @@
                                 <td><button class="btn btn-danger btn-sm">BELUM BAYAR</button></td>
                                 <td><a href="/dashboard/service/action/create" class="btn btn-primary btn-sm">LAYANI</a></td>
                             </tr>
+                          @endforeach
                         {{-- @foreach ($patients as $patient)
                         <tr>
                             <td>{{ $patient->medic_record_number }}</td>

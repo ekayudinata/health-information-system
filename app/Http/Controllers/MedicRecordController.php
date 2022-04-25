@@ -15,7 +15,10 @@ class MedicRecordController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.service.action.index', [
+            'title' => 'Pelayanan',
+            'medicrecords' => MedicRecord::all()
+        ]);
     }
 
     /**
