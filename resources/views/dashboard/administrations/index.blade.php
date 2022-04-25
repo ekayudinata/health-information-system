@@ -49,16 +49,12 @@
                           <td>{{  $administration->poli_id  }}</td>
 
                           <td>
-                            <a href="#" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                             <form action="#" method="post" class="d-inline">
                               @method('delete')
                               @csrf
                               <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-trash"></i>
                               </button>
-  
-                
-
                             </form>
                           </td>
                       </tr>

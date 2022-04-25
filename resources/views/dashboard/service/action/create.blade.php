@@ -61,32 +61,32 @@
                     <label>Alergi</label>
                     <textarea class="form-control" name="allergy" rows="2" cols="50" placeholder="Input Alergi"></textarea>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <label>Past Medical History</label>
                     <textarea class="form-control" name="past_medical_history" rows="3" cols="50" placeholder="Input Past Medical History"></textarea>
                   </div>
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                     <label>Treatment So Far</label>
                     <textarea class="form-control" name="treatment_so_far" rows="3" cols="50" placeholder="Input Treatment So Far"></textarea>
                   </div>
-                  <div class="form-group col-md-4">
+                  {{-- <div class="form-group col-md-4">
                     <label>Riwayat Sakit</label>
                     <textarea class="form-control" name="medical_history" rows="3" cols="50" placeholder="Input Riwayat Sakit"></textarea>
-                  </div>
+                  </div> --}}
                 </div>
                 <!-- /.form-row -->
                 <div class="form-row">
                   <div class="form-group col-md-2">
                     <label>TK</label>
-                    <input type="text" class="form-control" placeholder="TK" name="level_of_consciousness" required value="">
+                    <input type="text" class="form-control" placeholder="Tingkat Kesadaran" name="level_of_consciousness" required value="">
                   </div>
                   <div class="form-group col-md-2">
                     <label>RR</label>
-                    <input type="text" class="form-control" placeholder="RR" name="respiration" required value="">
+                    <input type="text" class="form-control" placeholder="Respirasi" name="respiration" required value="">
                   </div>
                   <div class="form-group col-md-2">
                     <label>TD</label>
-                    <input type="text" class="form-control" placeholder="TD" name="blood_pressure" required value="">
+                    <input type="text" class="form-control" placeholder="Tekanan Darah" name="blood_pressure" required value="">
                   </div>
                   <div class="form-group col-md-2">
                     <label>Suhu</label>
@@ -98,7 +98,7 @@
                   </div>
                   <div class="form-group col-md-2">
                     <label>SAT O2</label>
-                    <input type="text" class="form-control" placeholder="SAT O2" name="o2_saturation" required value="">
+                    <input type="text" class="form-control" placeholder="Saturasi O2" name="o2_saturation" required value="">
                   </div>
                 </div>
                 <!-- /.form-row -->
@@ -193,7 +193,7 @@
                   </div>
                   <div class="form-group col-md-12">
                     <label>Fit To Fly</label>
-                    <input type="text" class="form-control" placeholder="Input Fit To Fly" name="fit_to_flay" required value="">
+                    <input type="text" class="form-control" placeholder="Input Fit To Fly" name="fit_to_fly" required value="">
                   </div>
                   <div class="form-group col-md-12">
                     <label>Hasil Pemeriksaan Penunjang</label>
@@ -201,7 +201,10 @@
                       <h4 class="alert-heading"><i class="fas fa-xmark"></i> Hasil Pemeriksaan Belum Tersimpan</h4>
                       <p>Silahkan input hasil pemeriksaan dengan tombol di bawah!</p>
                     </div>
-                    <input type="file" class="form-control" placeholder="Input Hasil Pemeriksaan Penunjang" name="additional_data" required value="">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                   </div>
                 </div>
                 <!-- /.form-row -->

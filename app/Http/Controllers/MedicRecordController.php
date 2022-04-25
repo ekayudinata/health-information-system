@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MedicRecord;
+use App\Models\Administration;
 use App\Http\Requests\StoreMedicRecordRequest;
 use App\Http\Requests\UpdateMedicRecordRequest;
 
@@ -17,7 +18,8 @@ class MedicRecordController extends Controller
     {
         return view('dashboard.service.action.index', [
             'title' => 'Pelayanan',
-            'medicrecords' => MedicRecord::all()
+            'medicrecords' => MedicRecord::all(),
+            'administrations' => Administration::all()
         ]);
     }
 

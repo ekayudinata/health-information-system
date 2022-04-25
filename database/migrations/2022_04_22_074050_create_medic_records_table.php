@@ -46,8 +46,8 @@ class CreateMedicRecordsTable extends Migration
             $table->string('diagnostic_information');
             $table->string('treatment_and_dosage');
             $table->string('recommendation');
-            $table->string('color blind');
-            $table->string('fit_to_flay');
+            $table->string('color_blind');
+            $table->string('fit_to_fly');
             $table->string('additional_data');
             $table->foreignId('administration_id');
             $table->timestamps();
