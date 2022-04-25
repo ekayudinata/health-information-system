@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Poli;
 use App\Http\Requests\StorePoliRequest;
 use App\Http\Requests\UpdatePoliRequest;
-use App\Models\Employee;
-use App\Models\EmployeePosition;
 
 class PoliController extends Controller
 {
@@ -20,7 +18,6 @@ class PoliController extends Controller
         return view('dashboard.polis.index', [
             'title' => 'Poli',
             'polis' => Poli::all(), 
-            'employees' => Employee::all()
         ]);
     }
 
@@ -33,7 +30,6 @@ class PoliController extends Controller
     {
         return view('dashboard.polis.create', [
             'title' => 'Poli',
-            'employees' => Employee::all()
         ]);
     }
 
@@ -49,7 +45,6 @@ class PoliController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required',
-            'doctor_id' => 'required'
         ]);
 
         Poli::create($validatedData);
@@ -79,7 +74,6 @@ class PoliController extends Controller
         return view('dashboard.polis.edit', [
             'title' => 'Poli',
             'poli' => $poli, 
-            'employees' => Employee::all()
         ]);
     }
 
@@ -94,7 +88,6 @@ class PoliController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'doctor_id' => 'required'
         ]);
 
         Poli::where('id', $poli->id)

@@ -27,21 +27,14 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Poli</th>
-                                <th>Dokter</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($polis as $poli)
                           <tr>
-                              <td>{{  $loop->iteration   }}</td>
+                              <td>{{ $loop->iteration }}</td>
                               <td>{{ $poli->name }}</td>
-                              @foreach ($employees as $employee)
-                              @if ($poli->doctor_id == $employee->id)
-                                <td>{{ $employee->name }} </td>
-                              @endif
-                              @endforeach
-                              
                               <td>
                                 <a href="/dashboard/polis/{{ $poli->id }}/edit  " class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pen"></i></a>
                                 {{-- <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a> --}}

@@ -34,23 +34,6 @@
                   </div>
                 @enderror
                 </div>
-
-              <div class="form-group">
-                <label>Nama Dokter</label>
-                <select name="doctor_id" class="form-control">
-
-                  <option value="">Pilih Dokter</option>
-                    @foreach ($employees as $employee)
-                      @if ($employee->employeeposition_id == 1)
-                      @if (old('doctor_id') == $employee->id)
-                              <option value="{{ $employee->id }}" selected>{{ $employee->name }}</option>
-                            @else
-                                 <option value="{{ $employee->id }}">{{ $employee->name }}</option>
-                            @endif 
-                      @endif
-                    @endforeach
-                </select>
-             </div>
             </div>
             <!-- /.card-body -->
 
