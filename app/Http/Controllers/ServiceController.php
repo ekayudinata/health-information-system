@@ -17,7 +17,7 @@ class ServiceController extends Controller
 
     public function patientAction()
     {
-        return view('dashboard.service.action.create', [
+        return view('dashboard.service.action.index', [
             'title' => 'Periksa',
             'administrations' => Administration::all() // get patient data from admnistration table (eliquent)
         ]);
@@ -25,14 +25,14 @@ class ServiceController extends Controller
 
     public function patientTransaction()
     {
-        return view('dashboard.service.transaction', [
+        return view('dashboard.service.transaction.index', [
             'title' => 'Tata Laksana'
         ]);
     }
 
     public function patientLab()
     {
-        return view('dashboard.service.lab', [
+        return view('dashboard.service.lab.index', [
             'title' => 'Laboratiorium'
         ]);
     }
@@ -54,7 +54,7 @@ class ServiceController extends Controller
 
     public function payment()
     {
-        return view('dashboard.service.payment', [
+        return view('dashboard.service.payment.index', [
             'title' => 'Pembayaran'
         ]);
     }

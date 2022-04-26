@@ -36,17 +36,7 @@
             <i class="fas fa-fw fa-cog"></i>
             <span>Pelayanan</span>
         </a>
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#colapseService"
-            aria-expanded="true" aria-controls="colapseService">
-            {{-- <i class="fas fa-fw fa-cog"></i> --}}<i class="fas fa-list"></i>
-            <span>Pelayanan </span>
-        </a>
-        <div id="colapseService" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/dashboard/service/action">Tindakan </a>
-                <a class="collapse-item" href="/dashboard/service/report">Laporan </a>
-            </div>
-        </div>
+        
     </li>
 
 

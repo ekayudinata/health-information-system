@@ -7,7 +7,7 @@
     <div class="row mb-2">
       <div class="col-sm-6">
         {{-- <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1> --}}
-        <h1 class="h3 mb-2 text-gray-800">{{ $title }}</h1>
+        <h1 class="h3 mb-2 text-gray-800">Pelayanan</h1>
       </div>
     </div>
   </div><!-- /.container-fluid -->
@@ -24,6 +24,7 @@
               {{-- <h6 class="m-0 font-weight-bold text-primary">Tabel Data {{ $title }}</h6> --}}
               <h6 class="m-0 font-weight-bold text-primary">Tabel Data Pelayanan</h6>
           </div>
+          
           <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -40,16 +41,51 @@
                             </tr>
                         </thead>
                         <tbody>
+                          {{-- @foreach ($medicrecords as $medicrecord) --}}
                             <tr>
                                 <td>1</td>
-                                <td>MILCA AKILA</td>
+                                <td>sanjaya</td>
                                 <td>DR. ROMY KAMALUDDIN, S.KED., M. BIOMED (AAM)</td>
                                 <td>UMUM</td>
                                 <td>BPJS</td>
                                 <td><button class="btn btn-danger btn-sm">BELUM DILAYANI</button></td>
                                 <td><button class="btn btn-danger btn-sm">BELUM BAYAR</button></td>
-                                <td><a href="/dashboard/service/action" class="btn btn-primary btn-sm">LAYANI</a></td>
+                                <td>
+                                  <div class="dropdown mb-4">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                        MENU PASIEN
+                                    </button>
+                                    <div class="dropdown-menu animated--fade-in"
+                                        aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="/dashboard/service/action/index"><i class="fa fa-diagnoses" aria-hidden="true"></i>
+                                          Layani
+                                        </a>
+                                        <a class="dropdown-item" href="/dashboard/service/transaction/index"><i class="fa fa-pills" aria-hidden="true"></i>
+                                          Tata Laksana
+                                        </a>
+                                        <a class="dropdown-item" href="/dashboard/service/lab/index"><i class="fa fa-pills" aria-hidden="true"></i>
+                                          Laboratorium
+                                        </a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-file" aria-hidden="true"></i>
+                                          Surat Sakit
+                                        </a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-file" aria-hidden="true"></i>
+                                          Surat Sehat
+                                        </a>
+                                        <a class="dropdown-item" href="#"><i class="fa fa-file" aria-hidden="true"></i>
+                                          Surat Rujukan
+                                        </a>
+                                        <a class="dropdown-item" href="/dashboard/service/payment/index"><i class="fa fa-wallet" aria-hidden="true"></i>
+                                          Bayar
+                                        </a>
+                                    </div>
+                                  </div>
+                                </td>
+                                {{-- <td><a href="/dashboard/service/action/create" class="btn btn-primary btn-sm">LAYANI</a></td> --}}
                             </tr>
+                          {{-- @endforeach --}}
                         {{-- @foreach ($patients as $patient)
                         <tr>
                             <td>{{ $patient->medic_record_number }}</td>

@@ -66,12 +66,12 @@ Route::resource('/dashboard/patientactions',PatientActionController::class)->mid
 
 Route::get('/dashboard/service', [ServiceController::class, 'index'])->middleware('auth');
 
-Route::get('/dashboard/service/action', [ServiceController::class, 'patientAction'])->middleware('auth');
+Route::get('/dashboard/service/action/index', [ServiceController::class, 'patientAction'])->middleware('auth');
 
-Route::get('/dashboard/service/report',function (){
-    return view('dashboard.service.report.index', [
-        'title' => "dashboard"
-    ]); 
-});
+Route::get('/dashboard/service/transaction/index', [ServiceController::class, 'patientTransaction'])->middleware('auth');
+
+Route::get('/dashboard/service/lab/index', [ServiceController::class, 'patientLab'])->middleware('auth');
+
+Route::get('/dashboard/service/payment/index', [ServiceController::class, 'payment'])->middleware('auth');
 
 Route::resource('/dashboard/polis',PoliController::class);
